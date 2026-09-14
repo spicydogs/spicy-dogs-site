@@ -49,10 +49,18 @@ p{color:var(--navy)}
 
 
 .reviews-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:22px;margin-top:34px}
-.review-shot,.carousel-shot{background:white;border:1px solid rgba(33,19,62,.09);border-radius:24px;overflow:hidden;box-shadow:0 12px 30px rgba(33,19,62,.06)}
-.review-shot img,.carousel-shot img{width:100%;height:auto;display:block}
-.review-caption{padding:14px 18px 18px;font-weight:700;color:var(--navy);font-size:.98rem}
+.carousel-shot{background:white;border:1px solid rgba(33,19,62,.09);border-radius:24px;overflow:hidden;box-shadow:0 12px 30px rgba(33,19,62,.06)}
+.carousel-shot img{width:100%;height:auto;display:block}
 .reviews-note{margin-top:18px;color:rgba(33,19,62,.7)}
+
+.quote-card{position:relative;background:white;border:1px solid rgba(33,19,62,.09);border-radius:26px;padding:36px 30px 28px;box-shadow:0 12px 30px rgba(33,19,62,.06);display:flex;flex-direction:column;height:100%}
+.quote-card .mark{font-family:Georgia,serif;font-size:3.2rem;line-height:1;color:var(--pink);opacity:.55;margin-bottom:4px}
+.quote-card p{font-size:1.02rem;color:rgba(33,19,62,.88);flex-grow:1;margin:0 0 20px}
+.quote-card .attribution{display:flex;align-items:center;gap:12px;padding-top:16px;border-top:1px solid rgba(33,19,62,.08)}
+.quote-card .avatar{width:40px;height:40px;border-radius:50%;background:var(--coral);color:white;font-weight:800;display:flex;align-items:center;justify-content:center;font-size:1rem;flex:0 0 auto}
+.quote-card .attribution-text{display:flex;flex-direction:column}
+.quote-card .name{font-weight:800;color:var(--navy);font-size:.94rem}
+.quote-card .context{color:var(--pink);font-size:.82rem;font-weight:700}
 .carousel-wrap{display:flex;gap:20px;overflow-x:auto;scroll-snap-type:x mandatory;padding:6px 2px 10px;margin-top:34px}
 .carousel-wrap::-webkit-scrollbar{height:10px}
 .carousel-wrap::-webkit-scrollbar-thumb{background:rgba(33,19,62,.18);border-radius:999px}
@@ -61,7 +69,11 @@ p{color:var(--navy)}
 .section-intro-inline{display:flex;align-items:end;justify-content:space-between;gap:20px;flex-wrap:wrap}
 .small-link{font-weight:800;color:var(--coral)}
 @media(max-width:860px){.reviews-grid{grid-template-columns:1fr}.carousel-shot{flex-basis:min(310px,86vw)}}
+@media(max-width:600px){.quote-card{padding:28px 22px 24px}}
 
 .kit-embed{margin-top:24px}
 .kit-embed-footer{margin-top:14px}
 .kit-embed iframe,.kit-embed form{max-width:100%}
+
+.footer-guide-btn{margin-top:14px;width:max-content;max-width:100%}
+.kit-embed:not(.kit-embed-footer){max-width:760px;margin-inline:auto}
