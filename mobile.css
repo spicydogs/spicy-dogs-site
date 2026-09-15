@@ -1,4 +1,30 @@
-/* Spicy Dogs — dedicated mobile design layer */
+/* Spicy Dogs — responsive refinement layer */
+
+/* Desktop header refinement */
+@media (min-width: 861px) {
+  .nav-inner {
+    min-height: 84px;
+    gap: 34px;
+  }
+  .brand-logo img {
+    width: 104px;
+    height: 76px;
+  }
+  .nav-links {
+    gap: 28px;
+    font-size: .93rem;
+  }
+  .nav-links > .btn {
+    min-height: 42px;
+    padding: 10px 17px;
+    font-size: .9rem;
+    font-weight: 700;
+    box-shadow: none;
+  }
+  .nav-links > .btn:hover {
+    box-shadow: 0 6px 14px rgba(33,19,62,.07);
+  }
+}
 
 @media (max-width: 860px) {
   html { scroll-padding-top: 78px; }
@@ -7,62 +33,94 @@
 
   .container { width: min(calc(100% - 32px), var(--max)); }
 
-  /* Mobile header + reliable burger dropdown */
-  .nav { z-index: 100; overflow: visible; }
-  .nav-inner { min-height: 74px; position: relative; }
-  .brand-logo img { width: 86px; height: 62px; }
+  /* Mobile header + premium burger dropdown */
+  .nav {
+    z-index: 100;
+    overflow: visible;
+    background: rgba(255,249,242,.985);
+    backdrop-filter: blur(12px);
+  }
+  .nav-inner {
+    min-height: 74px;
+    position: relative;
+  }
+  .brand-logo img {
+    width: 86px;
+    height: 62px;
+  }
   .nav-toggle {
     display: flex;
-    width: 44px;
-    height: 44px;
-    padding: 8px;
+    width: 46px;
+    height: 46px;
+    padding: 9px;
     position: relative;
     z-index: 102;
-    background: rgba(255,255,255,.45);
-    border: 1px solid rgba(33,19,62,.08);
+    background: rgba(255,255,255,.62);
+    border: 1px solid rgba(33,19,62,.09);
+    box-shadow: 0 6px 16px rgba(33,19,62,.05);
+    transition: background .2s ease, box-shadow .2s ease, transform .2s ease;
   }
+  .nav-toggle:active { transform: scale(.97); }
+  .nav.is-open .nav-toggle {
+    background: var(--lavender);
+    box-shadow: none;
+  }
+  .nav-toggle span {
+    width: 22px;
+    height: 2px;
+    border-radius: 999px;
+  }
+
   .nav-links {
     position: absolute;
-    top: 100%;
-    left: -20px;
-    right: -20px;
+    top: calc(100% + 8px);
+    left: 0;
+    right: 0;
     display: flex;
     flex-direction: column;
     align-items: stretch;
     gap: 0;
-    padding: 14px 20px 24px;
-    background: var(--cream);
-    border-top: 1px solid rgba(33,19,62,.08);
-    border-bottom: 1px solid rgba(33,19,62,.08);
-    box-shadow: 0 18px 34px rgba(33,19,62,.12);
-    max-height: calc(100vh - 74px);
+    padding: 14px 18px 20px;
+    background: rgba(255,249,242,.995);
+    border: 1px solid rgba(33,19,62,.08);
+    border-radius: 22px;
+    box-shadow: 0 20px 44px rgba(33,19,62,.14);
+    max-height: calc(100vh - 94px);
     overflow-y: auto;
     opacity: 0;
     visibility: hidden;
-    transform: translateY(-8px);
+    transform: translateY(-8px) scale(.985);
+    transform-origin: top center;
     pointer-events: none;
-    transition: transform .2s ease, opacity .2s ease, visibility .2s ease;
+    transition: transform .22s ease, opacity .18s ease, visibility .18s ease;
   }
   .nav.is-open .nav-links {
     opacity: 1;
     visibility: visible;
-    transform: translateY(0);
+    transform: translateY(0) scale(1);
     pointer-events: auto;
   }
   .nav-links a:not(.btn) {
-    display: block;
-    padding: 16px 4px;
-    border-bottom: 1px solid rgba(33,19,62,.08);
+    display: flex;
+    align-items: center;
+    min-height: 52px;
+    padding: 14px 8px;
+    border-bottom: 1px solid rgba(33,19,62,.075);
     font-size: 1.08rem;
     line-height: 1.2;
-    font-weight: 750;
+    font-weight: 730;
+    letter-spacing: -.01em;
   }
+  .nav-links a:not(.btn):last-of-type { border-bottom: 0; }
   .nav-links a:not(.btn)::after { display: none; }
+  .nav-links a:not(.btn):active { color: var(--coral); }
   .nav-links .btn {
     width: 100%;
     margin-top: 18px;
-    padding: 14px 18px;
+    padding: 13px 18px;
     min-height: 50px;
+    font-size: .96rem;
+    box-shadow: none;
   }
 
   /* Mobile type hierarchy */
@@ -227,7 +285,7 @@
 
 @media (max-width: 600px) {
   .container { width: min(calc(100% - 28px), var(--max)); }
-  .nav-links { left: -14px; right: -14px; padding-left: 18px; padding-right: 18px; }
+  .nav-links { left: 0; right: 0; padding-left: 18px; padding-right: 18px; }
   h1 { font-size: clamp(2.35rem, 11.5vw, 3.5rem); }
   h2 { font-size: clamp(1.95rem, 9vw, 2.7rem); }
   .hero { padding-top: 44px; }
