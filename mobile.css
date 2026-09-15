@@ -1,0 +1,268 @@
+/* Spicy Dogs — dedicated mobile design layer */
+
+@media (max-width: 860px) {
+  html { scroll-padding-top: 78px; }
+  body { overflow-x: hidden; }
+  body.menu-open { overflow: hidden; }
+
+  .container { width: min(calc(100% - 32px), var(--max)); }
+
+  /* Mobile header + full-height burger panel */
+  .nav { z-index: 100; }
+  .nav-inner { min-height: 74px; }
+  .brand-logo img { width: 86px; height: 62px; }
+  .nav-toggle {
+    display: flex;
+    width: 44px;
+    height: 44px;
+    padding: 8px;
+    position: relative;
+    z-index: 102;
+    background: rgba(255,255,255,.45);
+    border: 1px solid rgba(33,19,62,.08);
+  }
+  .nav-links {
+    position: fixed;
+    inset: 74px 0 0 0;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+    padding: 22px 20px 32px;
+    background: var(--cream);
+    border: 0;
+    box-shadow: none;
+    overflow-y: auto;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateX(100%);
+    pointer-events: none;
+    transition: transform .24s ease, opacity .2s ease, visibility .2s ease;
+  }
+  .nav.is-open .nav-links {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(0);
+    pointer-events: auto;
+  }
+  .nav-links a:not(.btn) {
+    display: block;
+    padding: 17px 4px;
+    border-bottom: 1px solid rgba(33,19,62,.08);
+    font-size: 1.12rem;
+    line-height: 1.2;
+    font-weight: 750;
+  }
+  .nav-links a:not(.btn)::after { display: none; }
+  .nav-links .btn {
+    width: 100%;
+    margin-top: 22px;
+    padding: 14px 18px;
+    min-height: 50px;
+  }
+
+  /* Mobile type hierarchy */
+  h1 {
+    font-size: clamp(2.5rem, 11vw, 4rem);
+    line-height: 1.02;
+    letter-spacing: -.035em;
+    margin-bottom: 20px;
+  }
+  h2 {
+    font-size: clamp(2rem, 8.5vw, 3rem);
+    line-height: 1.06;
+    letter-spacing: -.03em;
+    margin-bottom: 18px;
+  }
+  h3 { font-size: 1.34rem; line-height: 1.12; }
+  .eyebrow { font-size: .72rem; letter-spacing: .13em; margin-bottom: 13px; }
+  .lead { font-size: 1.04rem; line-height: 1.56; }
+  .kicker { font-size: 1.06rem; line-height: 1.58; }
+  .prose p { font-size: 1rem; line-height: 1.68; }
+  .quote { font-size: clamp(1.55rem, 7vw, 2rem); margin-top: 22px; }
+
+  /* Rhythm */
+  .hero { padding: 50px 0 52px; }
+  .hero-home { padding: 26px 0 54px; }
+  .section { padding: 58px 0; }
+  .hero-stacked { gap: 28px; }
+  .grid-2,
+  .grid-3,
+  .services-preview,
+  .dog-story,
+  .dog-story.reverse,
+  .footer-grid {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+  .grid-3 { gap: 18px; }
+  .services-preview { gap: 16px; margin-top: 28px; }
+  .dog-story,
+  .dog-story.reverse { margin-top: 42px; }
+
+  /* Buttons */
+  .hero-actions { gap: 10px; margin-top: 26px; }
+  .hero-actions .btn,
+  .hero-actions .button { width: 100%; min-height: 49px; }
+  .btn,
+  .button { padding: 12px 18px; }
+  .link,
+  .small-link { margin-top: 14px; }
+
+  /* Cards */
+  .card,
+  .service-card,
+  .quote-card,
+  .footer-newsletter { border-radius: 20px; }
+  .card,
+  .service-card { padding: 24px 22px; }
+  .service-card h3 { font-size: 1.65rem; }
+  .notice { padding: 18px; border-radius: 14px; }
+  .email-box { padding: 26px 20px; border-radius: 22px; }
+
+  /* Homepage image treatment */
+  .hero-photo,
+  .hero-photo-wide {
+    width: 100%;
+    height: auto;
+    min-height: 0;
+    aspect-ratio: 4 / 3;
+    border-radius: 22px;
+  }
+  .hero-photo img { object-position: 56% 58%; }
+  .photo-frame {
+    min-height: 0;
+    height: auto;
+    aspect-ratio: 4 / 3;
+    border-radius: 22px;
+  }
+  .photo-frame img { min-height: 0; width: 100%; height: 100%; object-fit: cover; }
+  .photo-frame.about { aspect-ratio: 4 / 5; }
+  .photo-frame.about img { object-position: center 32%; }
+  .photo-frame.free-living img { object-position: center center; }
+
+  /* Philosophy */
+  .pillars { grid-template-columns: 1fr; gap: 34px; }
+  .pillar-circle { width: 146px; height: 146px; margin-bottom: 18px; }
+  .pillar p { max-width: 310px; }
+
+  /* About */
+  .about-hero-overlay { min-height: 500px; }
+  .about-hero-overlay img { object-position: center 46%; }
+  .about-hero-copy { padding: 40px 0; }
+  .about-hero-copy h1 { font-size: clamp(2.4rem, 10vw, 3.8rem); }
+  .about-hero-copy .lead { font-size: 1.08rem; }
+  .dogs-intro-photo {
+    height: auto;
+    aspect-ratio: 4 / 3;
+    border-radius: 22px;
+    margin-top: 28px;
+  }
+  .dogs-intro-photo img { object-position: center 68%; }
+  .dog-photo {
+    height: auto;
+    aspect-ratio: 4 / 5;
+    border-radius: 22px;
+  }
+  .dog-story.reverse .dog-photo { order: 0; }
+  .dog-photo.bambi img { object-position: center 42%; }
+  .dog-photo.pp img { object-position: center 42%; }
+  .story-gallery {
+    grid-template-columns: 1fr;
+    gap: 16px;
+    margin-top: 28px;
+  }
+  .story-gallery .photo-frame,
+  .story-gallery .photo-frame:first-child {
+    grid-row: auto;
+    min-height: 0;
+    aspect-ratio: 4 / 3;
+  }
+  .story-gallery .photo-frame img,
+  .story-gallery .photo-frame:first-child img { min-height: 0; }
+
+  /* Services */
+  .services-visual,
+  .services-break {
+    height: auto;
+    aspect-ratio: 4 / 3;
+    border-radius: 22px;
+  }
+  .services-visual { margin-top: 30px; }
+  .services-visual img { object-position: center 44%; }
+  .services-break img { object-position: center 48%; }
+  .list-clean { gap: 9px; }
+  .list-clean li { line-height: 1.5; }
+  .compare { min-width: 690px; border-radius: 16px; }
+  .compare th,
+  .compare td { padding: 12px 11px; font-size: .9rem; }
+  .price { font-size: 1.75rem; }
+
+  /* Reviews + screenshots */
+  .reviews-grid { grid-template-columns: 1fr; gap: 16px; margin-top: 28px; }
+  .quote-card { padding: 26px 22px 22px; }
+  .quote-card .mark { font-size: 2.7rem; }
+  .carousel-wrap { margin-top: 28px; gap: 14px; padding-bottom: 8px; }
+  .carousel-shot { flex-basis: min(300px, 84vw); border-radius: 20px; }
+  .carousel-caption { padding: 12px 15px 15px; }
+
+  /* Shop */
+  .shop-hero {
+    min-height: 700px;
+    align-items: flex-start;
+    padding: 48px 0 330px;
+    background-position: center bottom;
+    background-size: 100% auto;
+  }
+  .shop-hero::before {
+    background: linear-gradient(180deg, rgba(33,19,62,.95) 0%, rgba(33,19,62,.80) 43%, rgba(33,19,62,.20) 78%, rgba(33,19,62,.05) 100%);
+  }
+  .shop-hero h1 { max-width: 100%; }
+  .shop-grid { margin-top: 28px; }
+  .product-card { grid-template-columns: 1fr; border-radius: 20px; }
+  .product-image { min-height: 0; aspect-ratio: 4 / 3; }
+  .product-image img { object-position: center center; }
+  .product-copy { padding: 26px 22px; }
+  .product-copy h3 { font-size: 1.8rem; }
+  .product-copy .btn { width: 100%; }
+  .shop-note { padding: 18px; border-radius: 14px; }
+
+  /* Blog */
+  #posts-grid,
+  #fallback-posts { gap: 16px !important; margin-top: 26px !important; }
+  #posts-grid .card,
+  #fallback-posts .card { min-height: 0; }
+
+  /* Forms / Kit */
+  .form-row { grid-template-columns: 1fr; gap: 10px; }
+  .kit-embed { margin-top: 20px; overflow: hidden; }
+  .kit-embed iframe,
+  .kit-embed form { width: 100% !important; max-width: 100% !important; }
+
+  /* Footer */
+  .footer { padding: 48px 0 52px; }
+  .footer-grid { gap: 28px; }
+  .footer-logo img { width: 112px; margin-bottom: 12px; }
+  .footer-links { gap: 4px; }
+  .footer-links a { padding: 5px 0; }
+  .footer-newsletter { padding: 22px 20px; }
+  .footer-newsletter .btn,
+  .footer-guide-btn { width: 100%; }
+}
+
+@media (max-width: 600px) {
+  .container { width: min(calc(100% - 28px), var(--max)); }
+  .nav-links { padding-left: 18px; padding-right: 18px; }
+  h1 { font-size: clamp(2.35rem, 11.5vw, 3.5rem); }
+  h2 { font-size: clamp(1.95rem, 9vw, 2.7rem); }
+  .hero { padding-top: 44px; }
+  .section { padding: 52px 0; }
+  .shop-hero { min-height: 660px; padding-top: 42px; padding-bottom: 300px; }
+}
+
+@media (max-width: 390px) {
+  .container { width: min(calc(100% - 24px), var(--max)); }
+  h1 { font-size: 2.25rem; }
+  h2 { font-size: 1.9rem; }
+  .shop-hero { min-height: 630px; padding-bottom: 280px; }
+}
