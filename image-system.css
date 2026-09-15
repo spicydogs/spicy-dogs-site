@@ -1,0 +1,292 @@
+/* Spicy Dogs — consistent editorial image system */
+
+:root {
+  --image-radius: 28px;
+  --image-radius-mobile: 20px;
+  --image-bg: #eaded6;
+}
+
+/* 1. Wide editorial landscape */
+.hero-photo-wide,
+.photo-frame.free-living,
+.dogs-intro-photo,
+.services-visual,
+.services-break,
+.story-gallery .photo-frame,
+.product-image {
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--image-radius);
+  background: var(--image-bg);
+}
+
+.hero-photo-wide,
+.photo-frame.free-living,
+.services-visual,
+.services-break,
+.product-image {
+  aspect-ratio: 16 / 10;
+  height: auto;
+  min-height: 0;
+}
+
+.hero-photo-wide img,
+.photo-frame.free-living img,
+.dogs-intro-photo img,
+.services-visual img,
+.services-break img,
+.story-gallery .photo-frame img,
+.product-image img {
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+  object-fit: cover;
+  display: block;
+}
+
+/* Homepage hero: keep Vanessa + PingPong comfortably in frame */
+.hero-photo-wide img {
+  object-position: 56% 58%;
+}
+
+/* Free-living dogs section */
+.photo-frame.free-living img {
+  object-position: center 48%;
+}
+
+/* About page wide image with Bambi + PingPong */
+.dogs-intro-photo {
+  aspect-ratio: 16 / 9;
+  height: auto;
+}
+.dogs-intro-photo img {
+  object-position: center 68%;
+}
+
+/* Services editorial landscapes */
+.services-visual img {
+  object-position: center 43%;
+}
+.services-break img {
+  object-position: center 48%;
+}
+
+/* Rescue gallery: landscape-led editorial grid */
+.story-gallery .photo-frame {
+  min-height: 0;
+}
+.story-gallery .photo-frame:first-child {
+  aspect-ratio: 4 / 5;
+  min-height: 0;
+}
+.story-gallery .photo-frame:not(:first-child) {
+  aspect-ratio: 4 / 3;
+}
+.story-gallery .photo-frame:first-child img {
+  min-height: 0;
+  object-position: center 48%;
+}
+.story-gallery .photo-frame:nth-child(2) img {
+  object-position: center 48%;
+}
+.story-gallery .photo-frame:nth-child(3) img {
+  object-position: center 42%;
+}
+
+/* Shop product imagery */
+.product-image img {
+  object-position: center 50%;
+}
+
+/* 2. Tall portrait */
+.photo-frame.about,
+.dog-photo {
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--image-radius);
+  background: var(--image-bg);
+  aspect-ratio: 4 / 5;
+  height: auto;
+  min-height: 0;
+}
+
+.photo-frame.about img,
+.dog-photo img {
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+  object-fit: cover;
+  display: block;
+}
+
+.photo-frame.about img {
+  object-position: center 32%;
+}
+.dog-photo.bambi img {
+  object-position: center 42%;
+}
+.dog-photo.pp img {
+  object-position: center 42%;
+}
+
+/* 3. Circular dog portraits */
+.pillar-circle {
+  width: 164px;
+  height: 164px;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  overflow: hidden;
+  background: var(--image-bg);
+}
+.pillar-circle img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.pillar:nth-child(1) .pillar-circle img {
+  object-position: center 42%;
+}
+.pillar:nth-child(2) .pillar-circle img {
+  object-position: center 40%;
+}
+.pillar:nth-child(3) .pillar-circle img {
+  object-position: center 43%;
+}
+
+/* 4. Full-width hero imagery */
+.about-hero-overlay {
+  min-height: min(76vh, 700px);
+}
+.about-hero-overlay img {
+  object-position: center 46%;
+}
+
+.shop-hero {
+  background-position: center right;
+  background-size: contain;
+}
+
+/* Screenshots and review images should never be cropped */
+.carousel-shot img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  object-position: center;
+}
+
+/* Keep logos untouched by editorial crop rules */
+.brand-logo img,
+.footer-logo img {
+  object-fit: contain;
+}
+
+@media (max-width: 860px) {
+  .hero-photo-wide,
+  .photo-frame.free-living,
+  .dogs-intro-photo,
+  .services-visual,
+  .services-break,
+  .story-gallery .photo-frame,
+  .product-image,
+  .photo-frame.about,
+  .dog-photo {
+    border-radius: var(--image-radius-mobile);
+  }
+
+  /* Landscape images become slightly taller on phone for better subjects */
+  .hero-photo-wide,
+  .photo-frame.free-living,
+  .services-visual,
+  .services-break,
+  .product-image {
+    aspect-ratio: 4 / 3;
+  }
+
+  .hero-photo-wide img {
+    object-position: 58% 56%;
+  }
+
+  .photo-frame.free-living img {
+    object-position: center 46%;
+  }
+
+  .photo-frame.about {
+    aspect-ratio: 4 / 5;
+  }
+  .photo-frame.about img {
+    object-position: center 30%;
+  }
+
+  .dogs-intro-photo {
+    aspect-ratio: 4 / 3;
+  }
+  .dogs-intro-photo img {
+    object-position: center 65%;
+  }
+
+  .dog-photo {
+    aspect-ratio: 4 / 5;
+  }
+  .dog-photo.bambi img {
+    object-position: center 40%;
+  }
+  .dog-photo.pp img {
+    object-position: center 40%;
+  }
+
+  .story-gallery .photo-frame:first-child,
+  .story-gallery .photo-frame:not(:first-child) {
+    aspect-ratio: 4 / 3;
+  }
+  .story-gallery .photo-frame:first-child img {
+    object-position: center 44%;
+  }
+  .story-gallery .photo-frame:nth-child(2) img {
+    object-position: center 46%;
+  }
+  .story-gallery .photo-frame:nth-child(3) img {
+    object-position: center 40%;
+  }
+
+  .services-visual img {
+    object-position: center 42%;
+  }
+  .services-break img {
+    object-position: center 46%;
+  }
+
+  .product-image img {
+    object-position: center 48%;
+  }
+
+  .about-hero-overlay {
+    min-height: 500px;
+  }
+  .about-hero-overlay img {
+    object-position: 52% 44%;
+  }
+
+  /* Shop hero is both image-led and text-led: reserve space for full dog */
+  .shop-hero {
+    background-position: center bottom;
+    background-size: 100% auto;
+  }
+
+  .pillar-circle {
+    width: 146px;
+    height: 146px;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-photo-wide img {
+    object-position: 60% 56%;
+  }
+  .about-hero-overlay img {
+    object-position: 54% 43%;
+  }
+  .dogs-intro-photo img {
+    object-position: center 63%;
+  }
+}
