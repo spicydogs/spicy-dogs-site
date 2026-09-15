@@ -7,6 +7,43 @@
   <title>Shop | Spicy Dogs Behaviour</title>
   <link rel="stylesheet" href="style.css">
   <script src="https://spicy-dogs.kit.com/commerce.js" async defer></script>
+  <style>
+    .shop-hero{
+      position:relative;
+      min-height:68vh;
+      display:flex;
+      align-items:center;
+      background:url('assets/free-living-dogs.jpg') center/cover no-repeat;
+      color:#fff;
+    }
+    .shop-hero::before{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:linear-gradient(90deg,rgba(33,19,62,.78),rgba(33,19,62,.35));
+    }
+    .shop-hero .container{position:relative;z-index:1}
+    .shop-hero h1{color:#fff;max-width:850px}
+    .shop-hero .lead{color:#fff;max-width:720px}
+    .shop-hero .eyebrow{color:#fff}
+    .shop-grid{margin-top:34px}
+    .product-card{
+      max-width:760px;
+      background:#fff;
+      border:1px solid rgba(33,19,62,.09);
+      border-radius:30px;
+      padding:42px;
+      box-shadow:0 14px 38px rgba(33,19,62,.06)
+    }
+    .product-copy .tag{display:inline-block;font-size:.78rem;text-transform:uppercase;letter-spacing:.1em;font-weight:800;color:var(--pink);margin-bottom:14px}
+    .product-copy h3{font-size:2.2rem;color:var(--coral)}
+    .product-copy .btn{margin-top:16px}
+    .shop-note{margin-top:26px;padding:18px 20px;border-radius:18px;background:#f2eef7}
+    @media(max-width:860px){
+      .shop-hero{min-height:58vh;background-position:center}
+      .product-card{padding:28px}
+    }
+  </style>
 </head>
 <body>
 <header class="nav">
@@ -20,9 +57,9 @@
 </header>
 
 <main>
-  <section class="hero">
+  <section class="shop-hero">
     <div class="container">
-      <div class="eyebrow">Resources & education</div>
+      <div class="eyebrow">Resources &amp; education</div>
       <h1>Learn more. Understand more. Support your dog differently.</h1>
       <p class="lead">Research, guides and educational resources for people living with village, rescue, free-living and sensitive dogs.</p>
     </div>
@@ -34,9 +71,6 @@
       <h2>Spicy Dogs resources</h2>
       <div class="shop-grid">
         <article class="product-card">
-          <div class="product-image">
-            <img src="assets/free-living-dogs.jpg" alt="Free-living dogs in Sri Lanka">
-          </div>
           <div class="product-copy">
             <div class="tag">Research</div>
             <h3>Beyond Rescue</h3>
