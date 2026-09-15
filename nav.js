@@ -1,3 +1,10 @@
+(function () {
+  var mobileStyles = document.createElement('link');
+  mobileStyles.rel = 'stylesheet';
+  mobileStyles.href = 'mobile.css';
+  document.head.appendChild(mobileStyles);
+})();
+
 document.addEventListener('DOMContentLoaded', function () {
   document.querySelectorAll('.nav').forEach(function (header) {
     var inner = header.querySelector('.nav-inner');
@@ -9,7 +16,9 @@ document.addEventListener('DOMContentLoaded', function () {
     toggle.type = 'button';
     toggle.setAttribute('aria-label', 'Open menu');
     toggle.setAttribute('aria-expanded', 'false');
+    toggle.setAttribute('aria-controls', 'mobile-navigation');
     toggle.innerHTML = '<span></span><span></span><span></span>';
+    links.id = links.id || 'mobile-navigation';
     inner.insertBefore(toggle, links);
 
     function closeMenu() {
@@ -19,15 +28,24 @@ document.addEventListener('DOMContentLoaded', function () {
       toggle.setAttribute('aria-label', 'Open menu');
     }
 
+    function openMenu() {
+      header.classList.add('is-open');
+      document.body.classList.add('menu-open');
+      toggle.setAttribute('aria-expanded', 'true');
+      toggle.setAttribute('aria-label', 'Close menu');
+    }
+
     toggle.addEventListener('click', function () {
-      var open = header.classList.toggle('is-open');
-      document.body.classList.toggle('menu-open', open);
-      toggle.setAttribute('aria-expanded', String(open));
-      toggle.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+      if (header.classList.contains('is-open')) closeMenu();
+      else openMenu();
     });
 
     links.querySelectorAll('a').forEach(function (link) {
       link.addEventListener('click', closeMenu);
+    });
+
+    document.addEventListener('click', function (event) {
+      if (header.classList.contains('is-open') && !header.contains(event.target)) closeMenu();
     });
 
     document.addEventListener('keydown', function (event) {
