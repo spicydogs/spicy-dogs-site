@@ -1,7 +1,44 @@
 <!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Blog | Spicy Dogs Behaviour</title><link rel="stylesheet" href="style.css"></head><body>
 <header class="nav"><div class="container nav-inner"><a class="brand-logo" href="index.html" aria-label="Spicy Dogs home"><img src="assets/logo-clean-full.jpg" alt="Spicy Dogs"></a><nav class="nav-links"><a href="index.html">Home</a><a href="about.html">About</a><a href="services.html">Services</a><a href="blog.html">Blog</a><a class="btn" href="https://wa.me/94765994066?text=Hi%20Vanessa%2C%20I%20found%20Spicy%20Dogs%20through%20your%20website%20and%20I%27d%20like%20to%20book%20a%20free%20discovery%20call%20about%20my%20dog." target="_blank" rel="noopener">Book your free discovery call</a></nav></div></header>
 <main><section class="hero"><div class="container"><div class="eyebrow">Blog</div><h1>Thinking differently about dogs.</h1><p class="lead">Essays, observations and practical resources exploring behaviour, free-living dogs, relationships, welfare and what happens when human expectations meet canine reality.</p></div></section>
-<section class="section alt"><div class="container"><div class="notice"><strong>Spicy Dogs on Substack</strong><br>My long-form writing lives on Substack so I can keep the website simple while publishing regularly in one place.</div><div class="grid-3" style="margin-top:30px"><div class="card"><div class="mini">Substack</div><h3>Behaviour & relationships</h3><p>Thoughts on communication, welfare, expectations and the dog behind the behaviour.</p><a class="link" href="https://spicydogss.substack.com/" target="_blank" rel="noopener">Read on Substack →</a></div><div class="card"><div class="mini">Substack</div><h3>Free-living dogs</h3><p>What free-living and village dogs can teach us about autonomy, adaptation and life with humans.</p><a class="link" href="https://spicydogss.substack.com/" target="_blank" rel="noopener">Browse articles →</a></div><div class="card"><div class="mini">Substack</div><h3>Adoption & real life</h3><p>Writing for adopters navigating the gap between the dog they imagined and the dog in front of them.</p><a class="link" href="https://spicydogss.substack.com/" target="_blank" rel="noopener">Visit Spicy Dogs →</a></div></div><div style="margin-top:30px"><a class="button" href="https://spicydogss.substack.com/" target="_blank" rel="noopener">VISIT SPICY DOGS ON SUBSTACK</a></div></div></section></main>
+<section class="section alt"><div class="container"><div class="notice"><strong>Spicy Dogs on Substack</strong><br>My long-form writing lives on Substack so I can keep the website simple while publishing regularly in one place.</div>
+
+<div id="posts-grid" class="grid-3" style="margin-top:30px"></div>
+
+<div id="fallback-posts" class="grid-3" style="margin-top:30px;display:none">
+<div class="card"><div class="mini">Substack</div><h3>Behaviour & relationships</h3><p>Thoughts on communication, welfare, expectations and the dog behind the behaviour.</p><a class="link" href="https://spicydogss.substack.com/" target="_blank" rel="noopener">Read on Substack →</a></div>
+<div class="card"><div class="mini">Substack</div><h3>Free-living dogs</h3><p>What free-living and village dogs can teach us about autonomy, adaptation and life with humans.</p><a class="link" href="https://spicydogss.substack.com/" target="_blank" rel="noopener">Browse articles →</a></div>
+<div class="card"><div class="mini">Substack</div><h3>Adoption & real life</h3><p>Writing for adopters navigating the gap between the dog they imagined and the dog in front of them.</p><a class="link" href="https://spicydogss.substack.com/" target="_blank" rel="noopener">Visit Spicy Dogs →</a></div>
+</div>
+
+<div style="margin-top:30px"><a class="button" href="https://spicydogss.substack.com/" target="_blank" rel="noopener">VISIT SPICY DOGS ON SUBSTACK</a></div>
+</div></section></main>
+
+<script>
+(async function loadPosts(){
+  var grid = document.getElementById('posts-grid');
+  var fallback = document.getElementById('fallback-posts');
+  try {
+    var res = await fetch('/api/posts');
+    var data = await res.json();
+    if (!data.posts || !data.posts.length) throw new Error('no posts');
+    grid.innerHTML = data.posts.slice(0, 3).map(function(p){
+      var safeTitle = p.title.replace(/</g,'&lt;');
+      var safeExcerpt = p.excerpt.replace(/</g,'&lt;');
+      return '<div class="card">' +
+        (p.displayDate ? '<div class="mini">' + p.displayDate + '</div>' : '<div class="mini">Substack</div>') +
+        '<h3>' + safeTitle + '</h3>' +
+        '<p>' + safeExcerpt + '</p>' +
+        '<a class="link" href="' + p.link + '" target="_blank" rel="noopener">Read the post →</a>' +
+        '</div>';
+    }).join('');
+  } catch (err) {
+    grid.style.display = 'none';
+    fallback.style.display = 'grid';
+  }
+})();
+</script>
+
 <footer class="footer"><div class="container footer-grid">
   <div><div class="footer-logo"><img src="assets/logo-clean-full.jpg" alt="Spicy Dogs"></div><p>Helping people understand the dog behind the behaviour.</p><a href="mailto:vpetsservices@gmail.com">vpetsservices@gmail.com</a></div>
   <div><h3>Follow</h3><div class="footer-links"><a href="https://www.instagram.com/spicydogsbehaviour/" target="_blank" rel="noopener">Instagram</a><a href="https://spicydogss.substack.com/" target="_blank" rel="noopener">Substack</a><a href="blog.html">Blog</a></div></div>
