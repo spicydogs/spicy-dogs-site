@@ -3,6 +3,11 @@
   mobileStyles.rel = 'stylesheet';
   mobileStyles.href = 'mobile.css';
   document.head.appendChild(mobileStyles);
+
+  var editorialStyles = document.createElement('link');
+  editorialStyles.rel = 'stylesheet';
+  editorialStyles.href = 'editorial.css';
+  document.head.appendChild(editorialStyles);
 })();
 
 document.addEventListener('DOMContentLoaded', function () {
