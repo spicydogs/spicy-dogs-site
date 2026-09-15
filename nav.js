@@ -8,6 +8,11 @@
   editorialStyles.rel = 'stylesheet';
   editorialStyles.href = 'editorial.css';
   document.head.appendChild(editorialStyles);
+
+  var imageStyles = document.createElement('link');
+  imageStyles.rel = 'stylesheet';
+  imageStyles.href = 'image-system.css';
+  document.head.appendChild(imageStyles);
 })();
 
 document.addEventListener('DOMContentLoaded', function () {
