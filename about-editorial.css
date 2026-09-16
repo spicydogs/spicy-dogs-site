@@ -169,6 +169,7 @@
   font-size:1.28rem;
   line-height:1.2;
   margin-bottom:14px;
+  color:var(--navy);
 }
 .journey-copy p{
   color:var(--text-soft);
