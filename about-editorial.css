@@ -1,128 +1,58 @@
 /* Spicy Dogs — About page editorial treatment */
 
-/* Hero: quieter, magazine-like framing */
+/* Hero: strong opening, generous breathing room */
 .about-hero-overlay{
-  min-height:72vh;
+  min-height:76vh;
 }
 .about-hero-overlay:after{
-  background:linear-gradient(180deg,rgba(33,19,62,.02) 24%,rgba(33,19,62,.12) 52%,rgba(33,19,62,.80) 100%);
+  background:linear-gradient(180deg,rgba(33,19,62,.02) 22%,rgba(33,19,62,.12) 50%,rgba(33,19,62,.82) 100%);
 }
 .about-hero-copy{
-  max-width:920px;
-  padding:82px 0 72px;
+  max-width:940px;
+  padding:96px 0 82px;
 }
-.about-hero-copy .eyebrow{
-  color:var(--pink);
-}
+.about-hero-copy .eyebrow{color:var(--pink)}
 .about-hero-copy h1{
-  max-width:860px;
-  margin-bottom:20px;
+  max-width:900px;
+  margin-bottom:22px;
 }
 .about-hero-copy .lead{
-  max-width:680px;
+  max-width:650px;
+  font-size:clamp(1.2rem,2vw,1.55rem);
 }
 
-/* Opening story: image-led editorial spread */
-.about-hero-overlay + .section .grid-2{
-  grid-template-columns:1.18fr .82fr;
-  gap:72px;
-  align-items:center;
+/* Chapter 1 — who I am now: short, clear orientation */
+.about-now{
+  padding:104px 0 112px;
+  background:var(--cream);
 }
-.about-hero-overlay + .section .photo-frame{
-  aspect-ratio:5 / 4;
-  min-height:0;
+.about-now-copy{
+  max-width:900px;
 }
-.about-hero-overlay + .section .photo-frame img{
-  min-height:0;
-  object-position:center 48%;
-}
-.about-hero-overlay + .section .prose{
-  max-width:560px;
-}
-.about-hero-overlay + .section .prose p:first-child{
-  font-size:1.18rem;
-  line-height:1.66;
-  color:var(--navy);
-}
-.about-hero-overlay + .section .prose p:last-child{
-  margin-top:24px;
-  font-size:1.12rem;
-  font-weight:650;
-  color:var(--lilac-text);
-}
-
-/* Bambi + PingPong chapter */
-.about-hero-overlay + .section + .section{
-  padding-top:108px;
-  padding-bottom:116px;
-}
-.about-hero-overlay + .section + .section > .container > .kicker{
-  max-width:720px;
-  margin-bottom:42px;
-}
-.dogs-intro-photo{
-  height:auto;
-  aspect-ratio:16 / 7;
-  margin-top:38px;
-  border-radius:32px;
-}
-.dogs-intro-photo img{
-  object-position:center 66%;
-}
-
-.dog-story{
-  grid-template-columns:1.12fr .88fr;
-  gap:72px;
-  margin-top:92px;
-  align-items:center;
-}
-.dog-story.reverse{
-  grid-template-columns:.88fr 1.12fr;
-  margin-top:104px;
-}
-.dog-story.reverse .dog-photo{
-  order:2;
-}
-.dog-story > div:not(.dog-photo){
-  max-width:560px;
-}
-.dog-story .dog-photo{
-  height:auto;
-  aspect-ratio:4 / 5;
-  border-radius:30px;
-}
-.dog-story .dog-photo img{
-  width:100%;
-  height:100%;
-  object-fit:cover;
-}
-.dog-story .dog-photo.bambi img{
-  object-position:center 40%;
-}
-.dog-story .dog-photo.pp img{
-  object-position:center 42%;
-}
-.dog-story .eyebrow{
-  color:var(--pink);
-  margin-bottom:12px;
-}
-.dog-story h2{
-  max-width:540px;
+.about-now-copy .eyebrow{margin-bottom:18px}
+.about-now-copy h2{
+  max-width:780px;
   margin-bottom:26px;
 }
-.dog-story p{
-  color:var(--text-soft);
-  font-size:1.04rem;
+.about-now-copy .lead{
+  max-width:790px;
+  font-size:clamp(1.18rem,1.7vw,1.34rem);
+  line-height:1.62;
+  color:var(--navy);
 }
-.dog-story p + p{
-  margin-top:18px;
+.about-now-copy > p:last-child{
+  max-width:760px;
+  margin-top:22px;
+  color:var(--text-soft);
+  font-size:1.05rem;
 }
 
-/* Rescue-to-behaviour journey */
-.section.lav{
-  padding-top:104px;
-  padding-bottom:108px;
+/* Chapter 2 — chronological journey */
+.about-journey{
+  padding:112px 0 118px;
+  background:var(--lavender);
 }
+.about-journey > .container > h2{margin-bottom:20px}
 .journey-intro{
   max-width:760px;
   margin-bottom:0;
@@ -130,13 +60,11 @@
 .journey-grid{
   display:grid;
   grid-template-columns:repeat(4,1fr);
-  gap:24px;
-  margin-top:52px;
+  gap:26px;
+  margin-top:58px;
   align-items:start;
 }
-.journey-step{
-  min-width:0;
-}
+.journey-step{min-width:0}
 .journey-photo{
   aspect-ratio:4 / 5;
   overflow:hidden;
@@ -155,9 +83,7 @@
 .journey-step:nth-child(2) .journey-photo img{object-position:center 48%}
 .journey-step:nth-child(3) .journey-photo img{object-position:center 44%}
 .journey-step:nth-child(4) .journey-photo img{object-position:center 38%}
-.journey-copy{
-  padding-top:22px;
-}
+.journey-copy{padding-top:24px}
 .journey-number{
   color:var(--coral);
   font-size:.78rem;
@@ -174,7 +100,7 @@
 .journey-copy p{
   color:var(--text-soft);
   font-size:.98rem;
-  line-height:1.62;
+  line-height:1.64;
   margin-bottom:12px;
 }
 @media(hover:hover){
@@ -182,156 +108,265 @@
     transform:translateY(-6px);
     box-shadow:0 20px 40px rgba(33,19,62,.12);
   }
-  .journey-step:hover .journey-photo img{
-    transform:scale(1.025);
-  }
+  .journey-step:hover .journey-photo img{transform:scale(1.025)}
 }
 
-/* Credentials: restrained editorial cards */
-.section.lav + .section .grid-3{
-  margin-top:40px !important;
+/* Chapter 3 — Bambi + PingPong: emotional centre of the page */
+.about-dogs{
+  padding:122px 0 132px;
+  background:var(--cream);
+}
+.about-dogs > .container > .kicker{
+  max-width:720px;
+  margin-bottom:0;
+}
+.dogs-intro-photo{
+  height:auto;
+  aspect-ratio:16 / 7;
+  margin-top:48px;
+  border-radius:32px;
+  overflow:hidden;
+  box-shadow:var(--shadow-soft);
+}
+.dogs-intro-photo img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  object-position:center 66%;
+}
+.dog-story{
+  display:grid;
+  grid-template-columns:1.12fr .88fr;
+  gap:82px;
+  margin-top:104px;
+  align-items:center;
+}
+.dog-story.reverse{
+  grid-template-columns:.88fr 1.12fr;
+  margin-top:118px;
+}
+.dog-story.reverse .dog-photo{order:2}
+.dog-story > div:not(.dog-photo){max-width:560px}
+.dog-story .dog-photo{
+  height:auto;
+  aspect-ratio:4 / 5;
+  border-radius:30px;
+  overflow:hidden;
+  box-shadow:var(--shadow-soft);
+}
+.dog-story .dog-photo img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
+.dog-story .dog-photo.bambi img{object-position:center 40%}
+.dog-story .dog-photo.pp img{object-position:center 42%}
+.dog-story .eyebrow{
+  color:var(--pink);
+  margin-bottom:12px;
+}
+.dog-story h2{
+  max-width:540px;
+  margin-bottom:26px;
+}
+.dog-story p{
+  color:var(--text-soft);
+  font-size:1.04rem;
+}
+.dog-story p + p{margin-top:18px}
+
+/* Chapter 4 — broaden the story back out to free-living dogs */
+.about-free-living{
+  padding:118px 0 122px;
+  background:var(--surface-warm);
+}
+.about-free-living .grid-2{
+  grid-template-columns:1.12fr .88fr;
+  gap:82px;
+  align-items:center;
+}
+.about-free-living .photo-frame{
+  aspect-ratio:5 / 4;
+  min-height:0;
+  border-radius:32px;
+}
+.about-free-living .photo-frame img{
+  min-height:0;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  object-position:center 48%;
+}
+.about-free-living h2{
+  max-width:590px;
+  margin-bottom:28px;
+}
+.about-free-living .prose{max-width:560px}
+.about-free-living .prose p{
+  font-size:1.04rem;
+  line-height:1.7;
+}
+.about-free-living .prose p:last-child{
+  margin-top:24px;
+  font-weight:650;
+  color:var(--lilac-text);
+}
+
+/* Chapter 5 — credentials: compact proof after the story */
+.about-credentials{
+  padding:96px 0 104px;
+  background:var(--cream);
+}
+.about-credentials > .container > h2{margin-bottom:0}
+.about-credentials .grid-3{
+  margin-top:42px !important;
   gap:18px;
 }
-.section.lav + .section .card{
+.about-credentials .card{
   box-shadow:none;
-  background:rgba(255,255,255,.58);
-  padding:28px;
+  background:rgba(255,255,255,.72);
+  border:1px solid rgba(33,19,62,.075);
+  padding:30px;
 }
-.section.lav + .section .card h3{
-  margin-bottom:10px;
-}
+.about-credentials .card h3{margin-bottom:10px}
 
-/* Final approach statement */
-.section.alt:last-of-type{
-  padding-top:106px;
-  padding-bottom:110px;
+/* Chapter 6 — finish with a clear point of view and CTA */
+.about-approach{
+  padding:116px 0 122px;
+  background:var(--navy)!important;
+  color:var(--cream);
 }
-.section.alt:last-of-type h2{
-  max-width:780px;
+.about-approach .container{max-width:900px}
+.about-approach .eyebrow{color:var(--pink)}
+.about-approach h2{
+  max-width:800px;
+  color:var(--coral);
+  margin-bottom:0;
 }
-.section.alt:last-of-type .quote{
-  margin:34px 0 30px;
+.about-approach .quote{
+  margin:38px 0 30px;
   max-width:760px;
+  color:var(--cream);
 }
-.section.alt:last-of-type .prose{
-  max-width:690px;
+.about-approach .prose{max-width:690px}
+.about-approach .prose p{color:rgba(255,249,242,.88)}
+.about-approach .hero-actions{margin-top:34px}
+
+/* Gentle visual separation without adding more content */
+.about-now,
+.about-journey,
+.about-dogs,
+.about-free-living,
+.about-credentials,
+.about-approach{
+  position:relative;
+}
+.about-journey::before,
+.about-dogs::before,
+.about-free-living::before,
+.about-credentials::before{
+  content:"";
+  position:absolute;
+  top:0;
+  left:50%;
+  width:min(calc(100% - 40px),1180px);
+  height:1px;
+  transform:translateX(-50%);
+  background:rgba(33,19,62,.045);
 }
 
 @media(max-width:980px){
   .journey-grid{
     grid-template-columns:1fr 1fr;
-    gap:36px 22px;
+    gap:40px 24px;
   }
 }
 
 @media(max-width:860px){
-  .about-hero-overlay{
-    min-height:72svh;
-  }
-  .about-hero-copy{
-    padding:48px 0 44px;
-  }
-  .about-hero-copy h1{
-    max-width:94%;
+  .about-hero-overlay{min-height:72svh}
+  .about-hero-copy{padding:54px 0 48px}
+  .about-hero-copy h1{max-width:96%}
+
+  .about-now,
+  .about-journey,
+  .about-dogs,
+  .about-free-living,
+  .about-credentials,
+  .about-approach{
+    padding-top:74px;
+    padding-bottom:78px;
   }
 
-  .about-hero-overlay + .section .grid-2{
-    grid-template-columns:1fr;
-    gap:30px;
-  }
-  .about-hero-overlay + .section .photo-frame{
-    aspect-ratio:4 / 3;
-  }
-  .about-hero-overlay + .section .prose{
-    max-width:none;
-  }
-  .about-hero-overlay + .section .prose p:first-child{
-    font-size:1.08rem;
-  }
+  .journey-grid{margin-top:40px}
 
-  .about-hero-overlay + .section + .section{
-    padding-top:68px;
-    padding-bottom:74px;
-  }
   .dogs-intro-photo{
     aspect-ratio:4 / 3;
-    margin-top:30px;
+    margin-top:32px;
     border-radius:22px;
   }
-  .dogs-intro-photo img{
-    object-position:center 65%;
-  }
+  .dogs-intro-photo img{object-position:center 65%}
 
   .dog-story,
   .dog-story.reverse{
     grid-template-columns:1fr;
-    gap:28px;
-    margin-top:62px;
+    gap:30px;
+    margin-top:68px;
   }
-  .dog-story.reverse{
-    margin-top:72px;
-  }
-  .dog-story.reverse .dog-photo{
-    order:0;
-  }
-  .dog-story > div:not(.dog-photo){
-    max-width:none;
-  }
+  .dog-story.reverse{margin-top:78px}
+  .dog-story.reverse .dog-photo{order:0}
+  .dog-story > div:not(.dog-photo){max-width:none}
   .dog-story .dog-photo{
     aspect-ratio:4 / 5;
     border-radius:22px;
   }
-  .dog-story h2{
-    margin-bottom:20px;
-  }
+  .dog-story h2{margin-bottom:20px}
 
-  .section.lav{
-    padding-top:68px;
-    padding-bottom:72px;
+  .about-free-living .grid-2{
+    grid-template-columns:1fr;
+    gap:36px;
   }
-  .journey-grid{
-    margin-top:38px;
+  .about-free-living .photo-frame{
+    aspect-ratio:4 / 3;
+    border-radius:22px;
   }
+  .about-free-living .prose{max-width:none}
 
-  .section.lav + .section .grid-3{
+  .about-credentials .grid-3{
     gap:14px;
-    margin-top:30px !important;
-  }
-
-  .section.alt:last-of-type{
-    padding-top:68px;
-    padding-bottom:72px;
+    margin-top:32px !important;
   }
 }
 
 @media(max-width:600px){
-  .about-hero-overlay{
-    min-height:68svh;
+  .about-hero-overlay{min-height:68svh}
+  .about-hero-overlay img{object-position:center 44%}
+  .about-hero-copy h1{max-width:100%}
+
+  .about-now,
+  .about-journey,
+  .about-dogs,
+  .about-free-living,
+  .about-credentials,
+  .about-approach{
+    padding-top:62px;
+    padding-bottom:66px;
   }
-  .about-hero-overlay img{
-    object-position:center 44%;
-  }
-  .about-hero-copy h1{
-    max-width:100%;
-  }
-  .dog-story,
-  .dog-story.reverse{
-    margin-top:54px;
-  }
-  .dog-story.reverse{
-    margin-top:64px;
-  }
+
   .journey-grid{
     grid-template-columns:1fr;
-    gap:34px;
+    gap:38px;
   }
   .journey-photo{
     aspect-ratio:4 / 3;
     border-radius:22px;
   }
-  .journey-copy{
-    padding-top:18px;
-  }
+  .journey-copy{padding-top:18px}
+
+  .dog-story,
+  .dog-story.reverse{margin-top:58px}
+  .dog-story.reverse{margin-top:66px}
+
+  .about-approach .quote{margin-top:30px}
 }
 
 @media(prefers-reduced-motion:reduce){
