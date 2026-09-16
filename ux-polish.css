@@ -1,37 +1,6 @@
 /* Spicy Dogs — shared interaction, accessibility and mobile UX polish */
 :root{
-  --pink-text:#A94F88;
-  --violet-text:#766A8F;
-  --coral-link:#C33F38;
   --focus-ring:#21133E;
-}
-
-/* Accessible text accents while preserving the brand palette */
-.eyebrow,
-.card .mini,
-.service-card .tag,
-.product-copy .tag,
-.shop-hero .eyebrow,
-.faq-callout .eyebrow{
-  color:var(--pink-text);
-}
-
-h3,
-.kicker,
-.lead,
-.card h3,
-.service-card h3,
-.pillar h3,
-.product-copy h3,
-.footer h3{
-  color:var(--violet-text);
-}
-
-.link,
-.small-link{
-  color:var(--coral-link);
-  text-decoration-thickness:1.5px;
-  text-underline-offset:4px;
 }
 
 /* Buttons: same brand coral, higher text contrast */
@@ -101,7 +70,13 @@ textarea:focus-visible,
   box-shadow:0 12px 30px rgba(33,19,62,.09);
 }
 
-/* Links feel consistent */
+/* Links feel consistent while keeping the original brand colours */
+.link,
+.small-link{
+  text-decoration-thickness:1.5px;
+  text-underline-offset:4px;
+}
+
 .link:hover,
 .small-link:hover{
   color:var(--navy);
@@ -128,7 +103,7 @@ textarea:focus-visible,
 }
 
 .faq-item summary:hover{
-  color:var(--coral-link);
+  color:var(--coral);
 }
 
 .faq-item summary:active{
@@ -141,7 +116,7 @@ textarea:focus-visible,
 
 /* Current navigation state */
 .nav-links a[aria-current="page"]:not(.btn){
-  color:var(--coral-link);
+  color:var(--coral);
   font-weight:800;
 }
 
