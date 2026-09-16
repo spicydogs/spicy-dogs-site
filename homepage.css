@@ -2,11 +2,32 @@
 
 /* Overall homepage rhythm */
 .home-intro{
-  padding-bottom:82px;
+  padding:0 0 82px;
   background:var(--cream);
+  overflow:hidden;
 }
 .home-section{position:relative}
 .home-section .container{position:relative}
+
+/* Full-width homepage video hero */
+.home-intro .hero-stacked{gap:42px}
+.home-intro .hero-photo-wide{
+  order:-1;
+  width:100vw;
+  max-width:none;
+  height:clamp(430px,56vw,720px);
+  min-height:0;
+  margin-left:calc(50% - 50vw);
+  border-radius:0;
+  background:#eaded6;
+}
+.home-intro .hero-photo-wide video{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  object-position:center 68%;
+  display:block;
+}
 
 /* Use colour changes to mark chapters, not every individual block. */
 .home-think:first-of-type,
@@ -244,6 +265,11 @@
 
 @media(max-width:860px){
   .home-intro{padding-bottom:58px}
+  .home-intro .hero-photo-wide{
+    height:58vh;
+    min-height:360px;
+  }
+  .home-intro .hero-photo-wide video{object-position:center 70%}
   .home-think.home-principles,
   .home-difference.home-about,
   .home-work.home-resource,
