@@ -1,0 +1,106 @@
+/* Spicy Dogs — shared colour hierarchy */
+
+:root{
+  --secondary-violet:#8F83A8;
+}
+
+/* Primary page and section titles */
+h1,
+h2{
+  color:var(--coral);
+}
+
+/* Small uppercase section labels */
+.eyebrow,
+.card .mini,
+.service-card .tag,
+.product-copy .tag{
+  color:var(--pink);
+}
+
+/* Secondary titles and supporting title text */
+h3,
+.kicker,
+.lead{
+  color:var(--secondary-violet);
+}
+
+/* Body copy on light / cream surfaces */
+body,
+p,
+.prose p,
+.card p,
+.service-card p,
+.pillar p,
+.quote-card p,
+.notice,
+.list-clean,
+.compare td,
+.faq-answer p,
+.faq-item summary,
+.footer,
+.footer p,
+.footer a,
+.nav-links a:not(.btn){
+  color:var(--navy);
+}
+
+/* Keep key emphasis coral */
+.quote,
+.price,
+.link,
+.small-link,
+.compare th{
+  color:var(--coral);
+}
+
+/* Component-specific secondary titles */
+.card h3,
+.service-card h3,
+.pillar h3,
+.product-copy h3,
+.footer h3{
+  color:var(--secondary-violet);
+}
+
+/* Pink accents */
+.quote-card .mark,
+.shop-hero .eyebrow,
+.faq-callout .eyebrow{
+  color:var(--pink);
+}
+
+/* Dark/image backgrounds: keep body copy light, while titles stay coral */
+.about-hero-copy h1,
+.shop-hero h1,
+.email-box h2,
+.faq-callout h2{
+  color:var(--coral);
+}
+
+.about-hero-copy .lead,
+.shop-hero .lead,
+.email-box p,
+.email-box .lead,
+.email-box .kicker,
+.faq-callout p,
+.faq-callout .kicker{
+  color:#fff;
+}
+
+/* Navigation and interactive text remain clear */
+.nav-links a:not(.btn),
+.faq-index a,
+.faq-item summary,
+.quote-card .name,
+.carousel-caption{
+  color:var(--navy);
+}
+
+/* Preserve pink hover accent on buttons */
+.btn:hover,
+.button:hover{
+  background:var(--pink);
+  border-color:var(--pink);
+  color:var(--navy);
+}
