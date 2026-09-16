@@ -4,14 +4,17 @@
 }
 
 .dogs-intro-copy{
-  max-width:860px;
+  width:100%;
+  max-width:none;
 }
 .dogs-intro-copy h2{
-  max-width:780px;
+  width:100%;
+  max-width:none;
   margin-bottom:34px;
 }
 .dogs-intro-copy .kicker{
-  max-width:760px;
+  width:100%;
+  max-width:none;
   margin:34px 0 0;
 }
 
