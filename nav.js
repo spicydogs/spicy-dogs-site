@@ -63,8 +63,7 @@ document.addEventListener('DOMContentLoaded', function () {
         '</div>' +
       '</div>' +
       '<div class="footer-bottom">' +
-        '<span>Spicy Dogs Behaviour</span>' +
-        '<span>Welfare before obedience · Relationship over control</span>' +
+        '<span>© Spicy Dogs 2026 | All rights reserved</span>' +
       '</div>' +
     '</div>';
   });
