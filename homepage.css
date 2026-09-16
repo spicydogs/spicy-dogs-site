@@ -29,6 +29,17 @@
   display:block;
 }
 
+/* The video now carries the main visual statement, so the text below reads more like an introduction. */
+.home-intro .hero-stacked-copy h1{
+  font-size:clamp(1.18rem,1.8vw,1.42rem);
+  line-height:1.5;
+  font-weight:650;
+  letter-spacing:0;
+  color:var(--navy);
+  max-width:820px;
+  margin-bottom:14px;
+}
+
 /* Use colour changes to mark chapters, not every individual block. */
 .home-think:first-of-type,
 .home-difference:first-of-type,
