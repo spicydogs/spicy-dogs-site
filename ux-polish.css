@@ -1,0 +1,238 @@
+/* Spicy Dogs — shared interaction, accessibility and mobile UX polish */
+:root{
+  --pink-text:#A94F88;
+  --violet-text:#766A8F;
+  --coral-link:#C33F38;
+  --focus-ring:#21133E;
+}
+
+/* Accessible text accents while preserving the brand palette */
+.eyebrow,
+.card .mini,
+.service-card .tag,
+.product-copy .tag,
+.shop-hero .eyebrow,
+.faq-callout .eyebrow{
+  color:var(--pink-text);
+}
+
+h3,
+.kicker,
+.lead,
+.card h3,
+.service-card h3,
+.pillar h3,
+.product-copy h3,
+.footer h3{
+  color:var(--violet-text);
+}
+
+.link,
+.small-link{
+  color:var(--coral-link);
+  text-decoration-thickness:1.5px;
+  text-underline-offset:4px;
+}
+
+/* Buttons: same brand coral, higher text contrast */
+.btn,
+.button{
+  color:var(--navy);
+  box-shadow:none;
+  transition:transform .16s ease,background .16s ease,border-color .16s ease,box-shadow .16s ease;
+}
+
+.btn:hover,
+.button:hover{
+  transform:translateY(-1px);
+  box-shadow:0 8px 18px rgba(33,19,62,.08);
+}
+
+.btn:active,
+.button:active{
+  transform:translateY(0) scale(.985);
+}
+
+/* Unified focus treatment */
+a:focus-visible,
+button:focus-visible,
+summary:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible,
+[tabindex]:focus-visible{
+  outline:3px solid var(--focus-ring);
+  outline-offset:3px;
+  border-radius:8px;
+}
+
+.btn:focus-visible,
+.button:focus-visible,
+.nav-toggle:focus-visible,
+.footer-socials a:focus-visible,
+.back-to-top:focus-visible{
+  outline:3px solid var(--focus-ring);
+  outline-offset:3px;
+}
+
+/* Cards should respond without pretending the whole surface is clickable */
+.card,
+.service-card,
+.quote-card,
+.product-card,
+.carousel-shot,
+.footer-newsletter{
+  transition:border-color .18s ease,box-shadow .18s ease,background .18s ease;
+}
+
+.card:hover,
+.service-card:hover,
+.quote-card:hover,
+.product-card:hover,
+.carousel-shot:hover{
+  border-color:rgba(33,19,62,.16);
+  box-shadow:0 12px 30px rgba(33,19,62,.075);
+}
+
+.card:focus-within,
+.service-card:focus-within,
+.product-card:focus-within{
+  border-color:rgba(33,19,62,.22);
+  box-shadow:0 12px 30px rgba(33,19,62,.09);
+}
+
+/* Links feel consistent */
+.link:hover,
+.small-link:hover{
+  color:var(--navy);
+  transform:none;
+  text-decoration:underline;
+}
+
+.footer-page-links a,
+.footer-email,
+.nav-links>a:not(.btn){
+  text-underline-offset:4px;
+}
+
+.footer-page-links a:hover,
+.footer-email:hover{
+  text-decoration:underline;
+}
+
+/* FAQ interaction */
+.faq-item summary{
+  min-height:56px;
+  border-radius:10px;
+  transition:color .16s ease,background .16s ease;
+}
+
+.faq-item summary:hover{
+  color:var(--coral-link);
+}
+
+.faq-item summary:active{
+  background:rgba(255,255,255,.42);
+}
+
+.faq-item[open] summary{
+  color:var(--navy);
+}
+
+/* Current navigation state */
+.nav-links a[aria-current="page"]:not(.btn){
+  color:var(--coral-link);
+  font-weight:800;
+}
+
+/* Skip link */
+.skip-link{
+  position:fixed;
+  top:10px;
+  left:12px;
+  z-index:9999;
+  padding:10px 14px;
+  border-radius:10px;
+  background:var(--navy);
+  color:#fff;
+  font-weight:800;
+  transform:translateY(-150%);
+  transition:transform .15s ease;
+}
+.skip-link:focus{transform:translateY(0)}
+
+/* Tap targets */
+.footer-socials a,
+.back-to-top,
+.nav-toggle{
+  min-width:44px;
+  min-height:44px;
+}
+
+/* Mobile comparison: cleaner stacked summary, desktop table remains intact */
+.compare-mobile{display:none}
+.compare-mobile-card{
+  background:#fff;
+  border:1px solid rgba(33,19,62,.10);
+  border-radius:18px;
+  padding:22px 20px;
+  box-shadow:0 8px 22px rgba(33,19,62,.05);
+}
+.compare-mobile-card + .compare-mobile-card{margin-top:14px}
+.compare-mobile-card h3{margin-bottom:14px}
+.compare-mobile-row{
+  display:grid;
+  grid-template-columns:minmax(110px,.8fr) 1.2fr;
+  gap:14px;
+  padding:10px 0;
+  border-top:1px solid rgba(33,19,62,.08);
+}
+.compare-mobile-row strong{color:var(--navy);font-size:.9rem}
+.compare-mobile-row span{color:var(--navy);font-size:.94rem;line-height:1.45}
+
+/* Respect reduced-motion preferences */
+@media (prefers-reduced-motion: reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{
+    animation-duration:.01ms!important;
+    animation-iteration-count:1!important;
+    transition-duration:.01ms!important;
+  }
+}
+
+@media(max-width:860px){
+  /* Slightly calmer rhythm across all pages */
+  .section{padding:50px 0}
+  .hero{padding:44px 0 48px}
+  .hero-home{padding:24px 0 48px}
+
+  h1{font-size:clamp(2.25rem,10.5vw,3.55rem)}
+  h2{font-size:clamp(1.88rem,8.2vw,2.65rem)}
+  .lead{font-size:1rem}
+  .kicker{font-size:1.02rem}
+
+  .grid-2,.grid-3{gap:24px}
+  .services-preview{gap:14px}
+  .card,.service-card{padding:22px 20px}
+  .quote-card{padding:24px 20px 20px}
+
+  .hero-actions{margin-top:22px}
+  .hero-actions .btn,.hero-actions .button{min-height:48px}
+
+  /* Avoid sideways table scrolling on phones */
+  .compare-desktop{display:none}
+  .compare-mobile{display:block;margin-top:24px}
+
+  .faq-item summary{min-height:54px;padding:18px 0}
+  .faq-answer{padding-bottom:20px}
+
+  .footer-socials{gap:8px;flex-wrap:wrap}
+}
+
+@media(max-width:600px){
+  .section{padding:46px 0}
+  .hero{padding:40px 0 44px}
+  .container{width:min(calc(100% - 28px),var(--max))}
+  .compare-mobile-row{grid-template-columns:1fr;gap:3px}
+  .footer-newsletter{padding:20px 18px}
+}
