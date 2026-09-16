@@ -67,6 +67,25 @@
 .home-writing #posts-grid,
 .home-writing #fallback-posts{margin-top:30px!important}
 
+/* Expandable review cards */
+.review-details{margin-top:14px}
+.review-details summary{
+  display:inline-block;
+  cursor:pointer;
+  list-style:none;
+  font-weight:700;
+  color:var(--coral);
+  border-bottom:1px solid currentColor;
+  padding-bottom:2px;
+}
+.review-details summary::-webkit-details-marker{display:none}
+.review-details summary::after{content:" +"}
+.review-details[open] summary::after{content:" −"}
+.review-details[open] summary{margin-bottom:12px}
+.review-full p{margin:0 0 12px}
+.review-full p:last-child{margin-bottom:0}
+.review-source{margin-top:18px;font-size:.9rem;color:rgba(33,19,62,.68);font-weight:600}
+
 /* Clear final step */
 .home-next-step{
   background:var(--surface-warm);
