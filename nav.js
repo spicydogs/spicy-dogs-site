@@ -16,6 +16,15 @@ document.addEventListener('DOMContentLoaded', function () {
     var links = header.querySelector('.nav-links');
     if (!inner || !links || inner.querySelector('.nav-toggle')) return;
 
+    if (!links.querySelector('a[href="faq.html"]')) {
+      var faqLink = document.createElement('a');
+      faqLink.href = 'faq.html';
+      faqLink.textContent = 'FAQ';
+      var blogLink = links.querySelector('a[href="blog.html"]');
+      if (blogLink) links.insertBefore(faqLink, blogLink);
+      else links.insertBefore(faqLink, links.querySelector('.btn'));
+    }
+
     var toggle = document.createElement('button');
     toggle.className = 'nav-toggle';
     toggle.type = 'button';
