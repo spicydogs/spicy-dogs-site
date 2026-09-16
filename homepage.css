@@ -111,11 +111,12 @@
   background:rgba(33,19,62,.045);
 }
 
-/* Organic chapter dividers — intentionally used only at a few major transitions. */
+/* Organic chapter dividers — the outgoing section flows into the next colour. */
 .home-principles,
 .home-about,
 .home-resource{
   z-index:2;
+  overflow:visible;
 }
 .home-principles::after,
 .home-about::after,
@@ -124,22 +125,22 @@
   position:absolute;
   left:0;
   right:0;
-  bottom:-72px;
-  height:74px;
+  bottom:-46px;
+  height:92px;
   pointer-events:none;
-  z-index:3;
-  -webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 120' preserveAspectRatio='none'%3E%3Cpath fill='black' d='M0 36C170 82 313 102 469 72C625 42 713 8 875 35C1037 62 1198 103 1440 53V120H0Z'/%3E%3C/svg%3E") center/100% 100% no-repeat;
-  mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 120' preserveAspectRatio='none'%3E%3Cpath fill='black' d='M0 36C170 82 313 102 469 72C625 42 713 8 875 35C1037 62 1198 103 1440 53V120H0Z'/%3E%3C/svg%3E") center/100% 100% no-repeat;
+  z-index:4;
+  -webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 120' preserveAspectRatio='none'%3E%3Cpath fill='black' d='M0 10C180 72 330 96 495 62C660 28 742 4 900 34C1070 66 1225 92 1440 34V0H0Z'/%3E%3C/svg%3E") center/100% 100% no-repeat;
+  mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 120' preserveAspectRatio='none'%3E%3Cpath fill='black' d='M0 10C180 72 330 96 495 62C660 28 742 4 900 34C1070 66 1225 92 1440 34V0H0Z'/%3E%3C/svg%3E") center/100% 100% no-repeat;
 }
-.home-principles::after{background:var(--lavender)}
-.home-about::after{background:var(--cream)}
-.home-resource::after{background:var(--lavender)}
+.home-principles::after{background:var(--cream)}
+.home-about::after{background:#FBF8FC}
+.home-resource::after{background:var(--surface-warm)}
 
-/* Give the incoming chapters room for the wave and remove the old straight line. */
+/* Give the incoming chapters enough breathing room beneath each wave. */
 .home-principles + .home-difference,
 .home-about + .home-work,
 .home-resource + .home-proof{
-  padding-top:calc(80px + 42px);
+  padding-top:128px;
   border-top:0!important;
 }
 
@@ -253,13 +254,13 @@
   .home-principles::after,
   .home-about::after,
   .home-resource::after{
-    bottom:-54px;
-    height:56px;
+    bottom:-34px;
+    height:68px;
   }
   .home-principles + .home-difference,
   .home-about + .home-work,
   .home-resource + .home-proof{
-    padding-top:calc(64px + 32px);
+    padding-top:100px;
   }
 }
 
