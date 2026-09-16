@@ -7,6 +7,15 @@
   <title>Spicy Dogs Behaviour</title>
   <link rel="stylesheet" href="style.css" />
   <link rel="stylesheet" href="homepage.css" />
+  <style>
+    .home-credentials{margin:30px 0 26px;padding-top:24px;border-top:1px solid rgba(33,19,62,.09)}
+    .home-credentials-label{margin-bottom:18px;font-size:.76rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--lilac-text)}
+    .home-credentials-row{display:flex;flex-wrap:wrap;gap:28px;align-items:center}
+    .home-credential{display:flex;align-items:center;gap:14px;min-width:0}
+    .home-credential img{display:block;width:auto;height:auto;max-width:112px;max-height:54px;object-fit:contain}
+    .home-credential span{max-width:155px;font-size:.9rem;line-height:1.35;font-weight:650;color:var(--navy)}
+    @media(max-width:600px){.home-credentials-row{gap:20px}.home-credential{width:100%}.home-credential img{max-width:100px;max-height:48px}.home-credential span{max-width:none}}
+  </style>
   <script src="nav.js" defer></script>
 </head>
 <body>
@@ -99,6 +108,13 @@
           <p>My work brings together formal behaviour education, six years of CNVR and rescue experience, academic research, and the kind of learning that only comes from watching dogs navigate their own social worlds.</p>
           <p>Bambi and PingPong were the propellers of my path into behaviour — pushing me to ask better questions about fear, communication, autonomy, trust and relationship.</p>
           <p>I hold a Level 5 Diploma in Dog Behaviour & Psychology and have completed the Aggression in Dogs Master Course. My thesis, <em>Beyond Rescue: Evaluating the Suitability and Sustainability of Free-Living Dogs as Pets</em>, explored what happens when free-living dogs transition into human homes.</p>
+          <div class="home-credentials">
+            <div class="home-credentials-label">Qualified &amp; continuing education</div>
+            <div class="home-credentials-row">
+              <div class="home-credential"><img src="assets/ISCP logo.png" alt="ISCP logo"><span>Level 5 Diploma in Dog Behaviour &amp; Psychology</span></div>
+              <div class="home-credential"><img src="assets/Aggression_in_dogs_master_course-7.png" alt="Aggression in Dogs Master Course logo"><span>Aggression in Dogs Master Course</span></div>
+            </div>
+          </div>
           <a class="link" href="about.html">Read my story →</a>
         </div>
         <div class="photo-frame about"><img src="assets/vanessa-bambi-pingpong.jpg" alt="Vanessa with Bambi and PingPong in Sri Lanka"></div>
