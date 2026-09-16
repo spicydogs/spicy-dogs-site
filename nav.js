@@ -23,6 +23,11 @@
   uxStyles.rel = 'stylesheet';
   uxStyles.href = 'ux-polish.css';
   document.head.appendChild(uxStyles);
+
+  var buttonStyles = document.createElement('link');
+  buttonStyles.rel = 'stylesheet';
+  buttonStyles.href = 'button-system.css';
+  document.head.appendChild(buttonStyles);
 })();
 
 document.addEventListener('DOMContentLoaded', function () {
