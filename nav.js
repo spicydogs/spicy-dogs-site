@@ -177,4 +177,88 @@ document.addEventListener('DOMContentLoaded', function () {
       if (window.innerWidth > 860) closeMenu(false);
     });
   });
+
+  /* Homepage-only motion: calm, editorial, and disabled for reduced-motion users. */
+  var page = window.location.pathname.split('/').pop() || 'index.html';
+  var isHome = page === 'index.html' || page === '';
+  var reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  if (isHome) {
+    document.body.classList.add('home-motion');
+
+    var homeNav = document.querySelector('.nav');
+    function updateHomeNav() {
+      if (!homeNav) return;
+      if (window.scrollY > 42) homeNav.classList.add('nav-scrolled');
+      else homeNav.classList.remove('nav-scrolled');
+    }
+    window.addEventListener('scroll', updateHomeNav, { passive: true });
+    updateHomeNav();
+
+    if (!reducedMotion) {
+      var revealGroups = [
+        '.home-think .container > *',
+        '.home-principles .eyebrow, .home-principles h2, .home-principles .pillar',
+        '.home-difference .grid-2 > *',
+        '.home-about .grid-2 > *',
+        '.home-work .container > .eyebrow, .home-work .container > h2, .home-work .container > .kicker, .home-work .service-card, .home-work .notice',
+        '.home-resource .email-box',
+        '.home-proof .section-intro-inline, .home-proof .quote-card, .home-proof > .container > .hero-actions',
+        '.home-writing .container > .eyebrow, .home-writing .container > h2, .home-writing .container > .kicker, .home-writing .card',
+        '.home-next-step .container > *'
+      ];
+
+      var revealItems = [];
+      revealGroups.forEach(function (selector) {
+        document.querySelectorAll(selector).forEach(function (el, index) {
+          if (el.classList.contains('motion-reveal')) return;
+          el.classList.add('motion-reveal');
+          if (index % 3 === 1) el.classList.add('motion-delay-1');
+          if (index % 3 === 2) el.classList.add('motion-delay-2');
+          revealItems.push(el);
+        });
+      });
+
+      if ('IntersectionObserver' in window) {
+        var observer = new IntersectionObserver(function (entries, obs) {
+          entries.forEach(function (entry) {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('is-visible');
+              obs.unobserve(entry.target);
+            }
+          });
+        }, { threshold: 0.14, rootMargin: '0px 0px -8% 0px' });
+        revealItems.forEach(function (el) { observer.observe(el); });
+      } else {
+        revealItems.forEach(function (el) { el.classList.add('is-visible'); });
+      }
+
+      var parallaxMedia = Array.prototype.slice.call(document.querySelectorAll('.home-difference .photo-frame img, .home-about .photo-frame img, .hero-photo img, .hero-photo video'));
+      var ticking = false;
+
+      function updateParallax() {
+        parallaxMedia.forEach(function (media) {
+          var frame = media.parentElement;
+          if (!frame) return;
+          var rect = frame.getBoundingClientRect();
+          if (rect.bottom < 0 || rect.top > window.innerHeight) return;
+          var centerOffset = (rect.top + rect.height / 2) - window.innerHeight / 2;
+          var movement = Math.max(-12, Math.min(12, centerOffset * -0.025));
+          media.style.setProperty('--parallax-y', movement.toFixed(1) + 'px');
+        });
+        ticking = false;
+      }
+
+      function requestParallax() {
+        if (!ticking) {
+          window.requestAnimationFrame(updateParallax);
+          ticking = true;
+        }
+      }
+
+      window.addEventListener('scroll', requestParallax, { passive: true });
+      window.addEventListener('resize', requestParallax);
+      requestParallax();
+    }
+  }
 });
