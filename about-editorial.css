@@ -271,6 +271,21 @@
   padding:30px;
 }
 .about-credentials .card h3{margin-bottom:10px}
+.about-credentials .credential-logo{
+  height:92px;
+  display:flex;
+  align-items:center;
+  justify-content:flex-start;
+  margin-bottom:24px;
+}
+.about-credentials .credential-logo img{
+  display:block;
+  max-width:180px;
+  max-height:84px;
+  width:auto;
+  height:auto;
+  object-fit:contain;
+}
 
 /* Chapter 6 — finish with a clear point of view and CTA */
 .about-approach{
@@ -435,6 +450,15 @@
   .dog-story,
   .dog-story.reverse{margin-top:58px}
   .dog-story.reverse{margin-top:66px}
+
+  .about-credentials .credential-logo{
+    height:78px;
+    margin-bottom:20px;
+  }
+  .about-credentials .credential-logo img{
+    max-width:160px;
+    max-height:72px;
+  }
 
   .about-approach .quote{margin-top:30px}
 }
