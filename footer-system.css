@@ -16,10 +16,27 @@
   max-width:330px;
 }
 
+.footer-logo{
+  width:118px;
+  height:118px;
+  margin:0 0 14px;
+  border-radius:50%;
+  background:var(--cream);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  overflow:hidden;
+  border:1px solid rgba(33,19,62,.06);
+  box-shadow:0 8px 22px rgba(33,19,62,.05);
+}
+
 .footer-logo img{
-  width:112px;
-  height:auto;
-  margin:0 0 12px;
+  width:92px;
+  height:92px;
+  margin:0;
+  object-fit:contain;
+  border-radius:50%;
+  display:block;
 }
 
 .footer-tagline{
@@ -176,8 +193,14 @@
     max-width:none;
   }
 
+  .footer-logo{
+    width:108px;
+    height:108px;
+  }
+
   .footer-logo img{
-    width:104px;
+    width:84px;
+    height:84px;
   }
 
   .footer-page-links{
