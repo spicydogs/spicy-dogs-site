@@ -8,6 +8,11 @@
   imageStyles.rel = 'stylesheet';
   imageStyles.href = 'image-system.css';
   document.head.appendChild(imageStyles);
+
+  var colorStyles = document.createElement('link');
+  colorStyles.rel = 'stylesheet';
+  colorStyles.href = 'color-system.css';
+  document.head.appendChild(colorStyles);
 })();
 
 document.addEventListener('DOMContentLoaded', function () {
