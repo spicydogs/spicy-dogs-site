@@ -25,7 +25,7 @@ document.addEventListener('DOMContentLoaded', function () {
     footer.innerHTML = '<div class="container">' +
       '<div class="footer-grid">' +
         '<div class="footer-brand">' +
-          '<div class="footer-logo"><img src="assets/logo-clean-full.jpg" alt="Spicy Dogs"></div>' +
+          '<a class="footer-logo" href="index.html" aria-label="Spicy Dogs home"><img src="assets/logo-clean-full.jpg" alt="Spicy Dogs"></a>' +
           '<p class="footer-tagline">Helping people understand the dog behind the behaviour.</p>' +
           '<a class="footer-email" href="mailto:vpetsservices@gmail.com">vpetsservices@gmail.com</a>' +
         '</div>' +
@@ -67,6 +67,25 @@ document.addEventListener('DOMContentLoaded', function () {
       '</div>' +
     '</div>';
   });
+
+  var backToTop = document.createElement('button');
+  backToTop.className = 'back-to-top';
+  backToTop.type = 'button';
+  backToTop.setAttribute('aria-label', 'Back to top');
+  backToTop.innerHTML = '<svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 15l6-6 6 6"></path></svg>';
+  document.body.appendChild(backToTop);
+
+  function updateBackToTop() {
+    if (window.innerWidth <= 860 && window.scrollY > 520) backToTop.classList.add('is-visible');
+    else backToTop.classList.remove('is-visible');
+  }
+
+  backToTop.addEventListener('click', function () {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+  window.addEventListener('scroll', updateBackToTop, { passive: true });
+  window.addEventListener('resize', updateBackToTop);
+  updateBackToTop();
 
   document.querySelectorAll('.nav').forEach(function (header) {
     var inner = header.querySelector('.nav-inner');
