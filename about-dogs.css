@@ -33,42 +33,35 @@
   object-position:center 64%;
 }
 
-/* Simple editorial break before Bambi */
+/* Full-width editorial break before Bambi */
 .dogs-divider{
-  position:relative;
-  width:96px;
-  height:2px;
-  margin:72px auto 0;
-  background:var(--coral);
-  border-radius:999px;
+  width:100%;
+  height:1px;
+  margin:72px 0 0;
+  background:rgba(33,19,62,.14);
 }
-.dogs-divider::after{
-  content:"";
-  position:absolute;
-  left:50%;
-  top:50%;
-  width:8px;
-  height:8px;
-  border-radius:50%;
-  background:var(--pink);
-  border:5px solid var(--cream);
-  transform:translate(-50%,-50%);
-}
+.dogs-divider::after{display:none}
 
 .about-dogs .dogs-divider + .dog-story{
   margin-top:72px;
 }
 
-/* Bambi + PingPong stories: image height follows the text column */
-.about-dogs .dog-story,
+/* Bambi + PingPong stories: smaller images balanced to the copy */
+.about-dogs .dog-story{
+  grid-template-columns:minmax(280px,.72fr) minmax(0,1fr);
+  gap:68px;
+  align-items:center;
+}
 .about-dogs .dog-story.reverse{
-  align-items:stretch;
+  grid-template-columns:minmax(0,1fr) minmax(280px,.72fr);
 }
 .about-dogs .dog-story .dog-photo{
-  height:100%;
-  min-height:500px;
+  width:100%;
+  height:clamp(330px,31vw,410px);
+  min-height:0;
   aspect-ratio:auto;
-  align-self:stretch;
+  align-self:center;
+  border-radius:28px;
   transition:transform .32s ease, box-shadow .32s ease;
   will-change:transform;
 }
@@ -81,11 +74,11 @@
 
 @media(hover:hover){
   .about-dogs .dog-story:hover .dog-photo{
-    transform:translateY(-8px) scale(1.015);
-    box-shadow:0 24px 48px rgba(33,19,62,.14);
+    transform:translateY(-7px) scale(1.012);
+    box-shadow:0 22px 44px rgba(33,19,62,.13);
   }
   .about-dogs .dog-story:hover .dog-photo img{
-    transform:scale(1.035);
+    transform:scale(1.03);
   }
 }
 
@@ -105,12 +98,15 @@
 
   .about-dogs .dog-story,
   .about-dogs .dog-story.reverse{
+    grid-template-columns:1fr;
+    gap:30px;
     align-items:start;
   }
   .about-dogs .dog-story .dog-photo{
+    width:min(100%,520px);
     height:auto;
     min-height:0;
-    aspect-ratio:4 / 5;
+    aspect-ratio:4 / 3;
   }
 }
 
@@ -119,11 +115,12 @@
     aspect-ratio:4 / 3;
     border-radius:22px;
   }
-  .dogs-divider{
-    width:74px;
-    margin-top:46px;
-  }
+  .dogs-divider{margin-top:46px}
   .about-dogs .dogs-divider + .dog-story{margin-top:46px}
+  .about-dogs .dog-story .dog-photo{
+    width:100%;
+    aspect-ratio:4 / 3;
+  }
 }
 
 @media(prefers-reduced-motion:reduce){
