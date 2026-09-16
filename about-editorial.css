@@ -1,24 +1,37 @@
 /* Spicy Dogs — About page editorial treatment */
 
-/* Hero: strong opening, generous breathing room */
-.about-hero-overlay{
-  min-height:76vh;
+/* Hero: title first, then full-width image */
+.about-hero-editorial{
+  background:var(--cream);
+  padding-top:92px;
 }
-.about-hero-overlay:after{
-  background:linear-gradient(180deg,rgba(33,19,62,.02) 22%,rgba(33,19,62,.12) 50%,rgba(33,19,62,.82) 100%);
+.about-hero-title{
+  padding-bottom:52px;
 }
-.about-hero-copy{
-  max-width:940px;
-  padding:96px 0 82px;
+.about-hero-title .eyebrow{
+  color:var(--pink);
+  margin-bottom:18px;
 }
-.about-hero-copy .eyebrow{color:var(--pink)}
-.about-hero-copy h1{
-  max-width:900px;
+.about-hero-title h1{
+  max-width:980px;
   margin-bottom:22px;
 }
-.about-hero-copy .lead{
-  max-width:650px;
-  font-size:clamp(1.2rem,2vw,1.55rem);
+.about-hero-title .lead{
+  max-width:720px;
+  font-size:clamp(1.2rem,2vw,1.5rem);
+  color:var(--lilac-text);
+}
+.about-hero-image{
+  width:100%;
+  height:clamp(460px,58vw,760px);
+  overflow:hidden;
+  background:#eaded6;
+}
+.about-hero-image img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  object-position:center 46%;
 }
 
 /* Chapter 1 — who I am now: short, clear orientation */
@@ -283,9 +296,10 @@
 }
 
 @media(max-width:860px){
-  .about-hero-overlay{min-height:72svh}
-  .about-hero-copy{padding:54px 0 48px}
-  .about-hero-copy h1{max-width:96%}
+  .about-hero-editorial{padding-top:66px}
+  .about-hero-title{padding-bottom:38px}
+  .about-hero-title h1{max-width:96%}
+  .about-hero-image{height:58svh;min-height:420px}
 
   .about-now,
   .about-journey,
@@ -338,9 +352,11 @@
 }
 
 @media(max-width:600px){
-  .about-hero-overlay{min-height:68svh}
-  .about-hero-overlay img{object-position:center 44%}
-  .about-hero-copy h1{max-width:100%}
+  .about-hero-editorial{padding-top:54px}
+  .about-hero-title{padding-bottom:30px}
+  .about-hero-title h1{max-width:100%}
+  .about-hero-image{height:54svh;min-height:360px}
+  .about-hero-image img{object-position:center 44%}
 
   .about-now,
   .about-journey,
