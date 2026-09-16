@@ -40,7 +40,7 @@
   max-width:none;
   height:100%;
   object-fit:cover;
-  object-position:center 46%;
+  object-position:center 34%;
 }
 
 /* Chapter 1 — who I am now: short, clear orientation */
@@ -373,7 +373,7 @@
   }
   .about-hero-title h1{max-width:100%}
   .about-hero-image{height:54svh;min-height:360px}
-  .about-hero-image img{object-position:center 44%}
+  .about-hero-image img{object-position:center 34%}
 
   .about-now,
   .about-journey,
