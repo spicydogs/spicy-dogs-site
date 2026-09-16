@@ -41,6 +41,15 @@ document.addEventListener('DOMContentLoaded', function () {
             '<a href="https://www.instagram.com/spicydogsbehaviour/" target="_blank" rel="noopener" aria-label="Instagram">' +
               '<svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"></rect><circle cx="12" cy="12" r="4.2"></circle><circle cx="17.4" cy="6.7" r="1"></circle></svg>' +
             '</a>' +
+            '<a href="https://www.facebook.com/share/19JUocAdEJ/?mibextid=wwXIfr" target="_blank" rel="noopener" aria-label="Facebook">' +
+              '<svg viewBox="0 0 24 24" aria-hidden="true" fill="currentColor"><path d="M13.8 21v-8h2.7l.4-3h-3.1V8.1c0-.9.3-1.6 1.6-1.6H17V3.8c-.3 0-1.2-.1-2.3-.1-2.3 0-3.9 1.4-3.9 4v2.2H8.2v3h2.6v8h3Z"></path></svg>' +
+            '</a>' +
+            '<a href="https://www.threads.com/@spicydogsbehaviour?igshid=NTc4MTIwNjQ2YQ==" target="_blank" rel="noopener" aria-label="Threads">' +
+              '<svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17.8 8.7c-.8-3-3-4.5-5.9-4.5-3.9 0-6.5 2.7-6.5 7.7 0 5.2 2.8 8 6.7 8 3.5 0 6.1-2 6.1-5.1 0-2.7-1.9-4.2-4.5-4.2-2.2 0-3.7 1.1-3.7 2.8 0 1.5 1.2 2.5 2.8 2.5 2.1 0 3.5-1.5 3.5-4.1 0-1.9-.5-3.5-1.5-4.5-.8-.8-1.9-1.2-3.2-1.2"></path></svg>' +
+            '</a>' +
+            '<a href="https://www.tiktok.com/@spicydogs3" target="_blank" rel="noopener" aria-label="TikTok">' +
+              '<svg viewBox="0 0 24 24" aria-hidden="true" fill="currentColor"><path d="M14.2 3h3c.3 1.7 1.4 3 3 3.6v3.1c-1.2 0-2.4-.4-3.4-1.1v6.1c0 3.7-2.5 6.3-6.1 6.3-3.3 0-6-2.7-6-6s2.7-6 6-6c.4 0 .8 0 1.2.1v3.2a3 3 0 0 0-1.2-.2 2.9 2.9 0 1 0 3 3V3Z"></path></svg>' +
+            '</a>' +
             '<a href="https://spicydogss.substack.com/" target="_blank" rel="noopener" aria-label="Substack">' +
               '<svg viewBox="0 0 24 24" aria-hidden="true" fill="currentColor"><path d="M4.5 5.2h15v2.1h-15V5.2Zm0 3.6h15v2.1h-15V8.8Zm0 3.7h15v6.3l-7.5-4.2-7.5 4.2v-6.3Z"></path></svg>' +
             '</a>' +
