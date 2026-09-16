@@ -23,7 +23,8 @@
   margin-bottom:22px;
 }
 .services-hero-title .lead{
-  max-width:900px;
+  width:100%;
+  max-width:none;
   font-size:clamp(1.15rem,1.9vw,1.42rem);
   color:var(--lilac-text);
 }
