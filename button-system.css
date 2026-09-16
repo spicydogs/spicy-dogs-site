@@ -1,0 +1,28 @@
+/* Spicy Dogs — global button system */
+.btn,
+.button,
+.btn.secondary,
+.button.secondary,
+a.btn,
+a.button{
+  background:var(--coral)!important;
+  border-color:var(--coral)!important;
+  color:var(--cream)!important;
+}
+
+.btn:hover,
+.button:hover,
+.btn.secondary:hover,
+.button.secondary:hover,
+a.btn:hover,
+a.button:hover{
+  background:#e9473e!important;
+  border-color:#e9473e!important;
+  color:var(--cream)!important;
+}
+
+.btn:focus-visible,
+.button:focus-visible{
+  outline:2px solid var(--coral);
+  outline-offset:3px;
+}
