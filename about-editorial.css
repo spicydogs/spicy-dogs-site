@@ -4,6 +4,7 @@
 .about-hero-editorial{
   background:var(--cream);
   padding-top:92px;
+  overflow:hidden;
 }
 .about-hero-title{
   padding-bottom:52px;
@@ -22,13 +23,16 @@
   color:var(--lilac-text);
 }
 .about-hero-image{
-  width:100%;
+  width:100vw;
+  max-width:none;
   height:clamp(460px,58vw,760px);
+  margin-left:calc(50% - 50vw);
   overflow:hidden;
   background:#eaded6;
 }
 .about-hero-image img{
   width:100%;
+  max-width:none;
   height:100%;
   object-fit:cover;
   object-position:center 46%;
