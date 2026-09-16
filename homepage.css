@@ -98,6 +98,55 @@
 .home-think .quote{max-width:720px}
 .home-principles .pillars{margin-top:38px!important}
 
+/* Welfare principles heading */
+.home-principles h2{
+  font-size:0;
+  margin-bottom:8px;
+  max-width:none;
+}
+.home-principles h2::before{
+  content:"Welfare first";
+  display:block;
+  font-size:clamp(2.15rem,4.2vw,3.7rem);
+  line-height:1.07;
+  font-weight:700;
+  letter-spacing:-.025em;
+  color:var(--coral);
+}
+.home-principles h2::after{
+  content:"For both the human and the dog.";
+  display:block;
+  margin-top:12px;
+  font-size:clamp(1.3rem,2.2vw,1.75rem);
+  line-height:1.35;
+  font-style:italic;
+  font-weight:500;
+  letter-spacing:-.01em;
+  color:var(--navy);
+}
+
+/* Principle photos */
+.home-principles .pillar-circle{
+  background-size:cover;
+  background-repeat:no-repeat;
+  background-position:center;
+}
+.home-principles .pillar-circle img{
+  opacity:0;
+}
+.home-principles .pillar:nth-child(1) .pillar-circle{
+  background-image:url("assets/Beach Dog.JPG");
+  background-position:center 52%;
+}
+.home-principles .pillar:nth-child(2) .pillar-circle{
+  background-image:url("assets/me & PP.jpg");
+  background-position:center 42%;
+}
+.home-principles .pillar:nth-child(3) .pillar-circle{
+  background-image:url("assets/beach mummy 1.JPG");
+  background-position:center 50%;
+}
+
 /* Chapter 2 — why I am different */
 .home-difference{
   background:var(--lavender);
