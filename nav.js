@@ -18,9 +18,26 @@
   footerStyles.rel = 'stylesheet';
   footerStyles.href = 'footer-system.css';
   document.head.appendChild(footerStyles);
+
+  var uxStyles = document.createElement('link');
+  uxStyles.rel = 'stylesheet';
+  uxStyles.href = 'ux-polish.css';
+  document.head.appendChild(uxStyles);
 })();
 
 document.addEventListener('DOMContentLoaded', function () {
+  var main = document.querySelector('main');
+  if (main) {
+    main.id = main.id || 'main-content';
+    if (!document.querySelector('.skip-link')) {
+      var skipLink = document.createElement('a');
+      skipLink.className = 'skip-link';
+      skipLink.href = '#main-content';
+      skipLink.textContent = 'Skip to main content';
+      document.body.insertBefore(skipLink, document.body.firstChild);
+    }
+  }
+
   document.querySelectorAll('.footer').forEach(function (footer) {
     footer.innerHTML = '<div class="container">' +
       '<div class="footer-grid">' +
@@ -81,7 +98,8 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
   backToTop.addEventListener('click', function () {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    var reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    window.scrollTo({ top: 0, behavior: reducedMotion ? 'auto' : 'smooth' });
   });
   window.addEventListener('scroll', updateBackToTop, { passive: true });
   window.addEventListener('resize', updateBackToTop);
@@ -101,6 +119,14 @@ document.addEventListener('DOMContentLoaded', function () {
       else links.insertBefore(faqLink, links.querySelector('.btn'));
     }
 
+    var currentPage = window.location.pathname.split('/').pop() || 'index.html';
+    links.querySelectorAll('a[href]').forEach(function (link) {
+      var href = link.getAttribute('href');
+      if (href === currentPage || (currentPage === '' && href === 'index.html')) {
+        link.setAttribute('aria-current', 'page');
+      }
+    });
+
     var toggle = document.createElement('button');
     toggle.className = 'nav-toggle';
     toggle.type = 'button';
@@ -111,11 +137,12 @@ document.addEventListener('DOMContentLoaded', function () {
     links.id = links.id || 'mobile-navigation';
     inner.insertBefore(toggle, links);
 
-    function closeMenu() {
+    function closeMenu(returnFocus) {
       header.classList.remove('is-open');
       document.body.classList.remove('menu-open');
       toggle.setAttribute('aria-expanded', 'false');
       toggle.setAttribute('aria-label', 'Open menu');
+      if (returnFocus) toggle.focus();
     }
 
     function openMenu() {
@@ -123,27 +150,31 @@ document.addEventListener('DOMContentLoaded', function () {
       document.body.classList.add('menu-open');
       toggle.setAttribute('aria-expanded', 'true');
       toggle.setAttribute('aria-label', 'Close menu');
+      if (window.innerWidth <= 860) {
+        var firstLink = links.querySelector('a');
+        if (firstLink) setTimeout(function () { firstLink.focus(); }, 0);
+      }
     }
 
     toggle.addEventListener('click', function () {
-      if (header.classList.contains('is-open')) closeMenu();
+      if (header.classList.contains('is-open')) closeMenu(false);
       else openMenu();
     });
 
     links.querySelectorAll('a').forEach(function (link) {
-      link.addEventListener('click', closeMenu);
+      link.addEventListener('click', function () { closeMenu(false); });
     });
 
     document.addEventListener('click', function (event) {
-      if (header.classList.contains('is-open') && !header.contains(event.target)) closeMenu();
+      if (header.classList.contains('is-open') && !header.contains(event.target)) closeMenu(false);
     });
 
     document.addEventListener('keydown', function (event) {
-      if (event.key === 'Escape') closeMenu();
+      if (event.key === 'Escape' && header.classList.contains('is-open')) closeMenu(true);
     });
 
     window.addEventListener('resize', function () {
-      if (window.innerWidth > 860) closeMenu();
+      if (window.innerWidth > 860) closeMenu(false);
     });
   });
 });
