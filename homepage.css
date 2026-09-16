@@ -111,6 +111,38 @@
   background:rgba(33,19,62,.045);
 }
 
+/* Organic chapter dividers — intentionally used only at a few major transitions. */
+.home-principles,
+.home-about,
+.home-resource{
+  z-index:2;
+}
+.home-principles::after,
+.home-about::after,
+.home-resource::after{
+  content:"";
+  position:absolute;
+  left:0;
+  right:0;
+  bottom:-72px;
+  height:74px;
+  pointer-events:none;
+  z-index:3;
+  -webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 120' preserveAspectRatio='none'%3E%3Cpath fill='black' d='M0 36C170 82 313 102 469 72C625 42 713 8 875 35C1037 62 1198 103 1440 53V120H0Z'/%3E%3C/svg%3E") center/100% 100% no-repeat;
+  mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 120' preserveAspectRatio='none'%3E%3Cpath fill='black' d='M0 36C170 82 313 102 469 72C625 42 713 8 875 35C1037 62 1198 103 1440 53V120H0Z'/%3E%3C/svg%3E") center/100% 100% no-repeat;
+}
+.home-principles::after{background:var(--lavender)}
+.home-about::after{background:var(--cream)}
+.home-resource::after{background:var(--lavender)}
+
+/* Give the incoming chapters room for the wave and remove the old straight line. */
+.home-principles + .home-difference,
+.home-about + .home-work,
+.home-resource + .home-proof{
+  padding-top:calc(80px + 42px);
+  border-top:0!important;
+}
+
 /* Homepage motion system */
 .home-motion .nav{
   transition:padding .3s ease,box-shadow .3s ease,background-color .3s ease,backdrop-filter .3s ease;
@@ -218,6 +250,17 @@
   .home-principles .pillars{margin-top:28px!important}
   .home-next-step{padding-top:58px;padding-bottom:64px}
   .home-motion .nav.nav-scrolled .nav-inner{min-height:62px}
+  .home-principles::after,
+  .home-about::after,
+  .home-resource::after{
+    bottom:-54px;
+    height:56px;
+  }
+  .home-principles + .home-difference,
+  .home-about + .home-work,
+  .home-resource + .home-proof{
+    padding-top:calc(64px + 32px);
+  }
 }
 
 @media(max-width:600px){
