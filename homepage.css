@@ -159,6 +159,11 @@
 .home-difference .grid-2{align-items:center}
 .home-about .photo-frame{box-shadow:none}
 
+/* Keep Vanessa's face in frame in the free-living section */
+.home-difference:not(.home-about) .photo-frame.free-living img{
+  object-position:center 28%;
+}
+
 /* Chapter 3 — ways to work together */
 .home-work{
   background:var(--cream);
