@@ -1,0 +1,74 @@
+/* Spicy Dogs — Services page editorial hero */
+
+.services-hero-editorial{
+  padding:92px 0 0;
+  background:var(--cream);
+  overflow:hidden;
+}
+
+.services-hero-title{
+  width:100vw;
+  max-width:none;
+  margin-left:calc(50% - 50vw);
+  padding-left:clamp(24px,5vw,80px);
+  padding-right:clamp(24px,5vw,80px);
+  padding-bottom:52px;
+}
+.services-hero-title .eyebrow{
+  color:var(--pink);
+  margin-bottom:18px;
+}
+.services-hero-title h1{
+  max-width:1280px;
+  margin-bottom:22px;
+}
+.services-hero-title .lead{
+  max-width:900px;
+  font-size:clamp(1.15rem,1.9vw,1.42rem);
+  color:var(--lilac-text);
+}
+
+.services-hero-image{
+  width:100vw;
+  max-width:none;
+  height:clamp(460px,58vw,760px);
+  margin-left:calc(50% - 50vw);
+  overflow:hidden;
+  background:#eaded6;
+}
+.services-hero-image img{
+  width:100%;
+  max-width:none;
+  height:100%;
+  object-fit:cover;
+  object-position:center 42%;
+}
+
+@media(max-width:860px){
+  .services-hero-editorial{padding-top:66px}
+  .services-hero-title{
+    padding-left:24px;
+    padding-right:24px;
+    padding-bottom:38px;
+  }
+  .services-hero-title h1{max-width:100%}
+  .services-hero-image{
+    height:58svh;
+    min-height:420px;
+  }
+  .services-hero-image img{object-position:center 42%}
+}
+
+@media(max-width:600px){
+  .services-hero-editorial{padding-top:54px}
+  .services-hero-title{
+    padding-left:20px;
+    padding-right:20px;
+    padding-bottom:30px;
+  }
+  .services-hero-image{
+    height:54svh;
+    min-height:360px;
+  }
+  .services-hero-image img{object-position:center 40%}
+}
