@@ -1,0 +1,66 @@
+/* Spicy Dogs homepage — visual flow and section grouping */
+
+/* Overall homepage rhythm */
+.home-intro{padding-bottom:82px}
+.home-section{position:relative}
+.home-section + .home-section{border-top:1px solid rgba(33,19,62,.055)}
+.home-section .container{position:relative}
+
+/* Chapter 1 — how I think */
+.home-think{background:var(--surface-warm)}
+.home-think.home-principles{padding-top:58px}
+.home-think .quote{max-width:720px}
+.home-principles .pillars{margin-top:38px!important}
+
+/* Chapter 2 — why I am different */
+.home-difference{background:var(--lavender)}
+.home-difference.home-about{padding-top:64px}
+.home-difference .grid-2{align-items:center}
+.home-about .photo-frame{box-shadow:none}
+
+/* Chapter 3 — ways to work together */
+.home-work{background:var(--cream)}
+.home-work.home-resource{padding-top:52px}
+.home-work .services-preview{margin-top:36px}
+.home-work .notice{margin-top:24px!important}
+.home-resource .email-box{max-width:1040px;margin-inline:auto}
+
+/* Chapter 4 — proof and ongoing thinking */
+.home-proof{background:var(--surface-warm)}
+.home-proof.home-writing{padding-top:58px}
+.home-proof .reviews-grid{margin-top:30px}
+.home-writing #posts-grid,
+.home-writing #fallback-posts{margin-top:30px!important}
+
+/* Clear final step */
+.home-next-step{
+  background:var(--cream);
+  padding-top:76px;
+  padding-bottom:84px;
+}
+.home-next-step .container{max-width:880px}
+.home-next-step h2{max-width:760px;margin-inline:auto}
+.home-next-step .kicker{max-width:680px}
+
+/* Create visual continuity inside grouped chapters */
+.home-think + .home-think,
+.home-difference + .home-difference,
+.home-work + .home-work,
+.home-proof + .home-proof{
+  border-top:1px solid rgba(33,19,62,.06);
+}
+
+@media(max-width:860px){
+  .home-intro{padding-bottom:58px}
+  .home-think.home-principles,
+  .home-difference.home-about,
+  .home-work.home-resource,
+  .home-proof.home-writing{padding-top:44px}
+  .home-principles .pillars{margin-top:28px!important}
+  .home-next-step{padding-top:58px;padding-bottom:64px}
+}
+
+@media(max-width:600px){
+  .home-section + .home-section{border-top-color:rgba(33,19,62,.07)}
+  .home-resource .email-box{border-radius:20px}
+}
