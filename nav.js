@@ -1,4 +1,10 @@
 (function () {
+  var favicon = document.createElement('link');
+  favicon.rel = 'icon';
+  favicon.type = 'image/svg+xml';
+  favicon.href = 'favicon.svg';
+  document.head.appendChild(favicon);
+
   var mobileStyles = document.createElement('link');
   mobileStyles.rel = 'stylesheet';
   mobileStyles.href = 'mobile.css';
