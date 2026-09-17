@@ -12,9 +12,9 @@
 .button:hover,
 .btn.secondary:hover,
 .button.secondary:hover{
-  background:#e9473e;
-  border-color:#e9473e;
-  color:var(--cream);
+  background:var(--pink);
+  border-color:var(--pink);
+  color:var(--navy);
 }
 
 .btn:focus-visible,
