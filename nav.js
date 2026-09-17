@@ -86,6 +86,7 @@ document.addEventListener('DOMContentLoaded', function () {
       '</div>' +
       '<div class="footer-bottom">' +
         '<span>© Spicy Dogs 2026 | All rights reserved</span>' +
+        '<div class="footer-legal"><a href="privacy.html">Privacy Policy</a> · <a href="terms.html">Terms &amp; Conditions</a></div>' +
       '</div>' +
     '</div>';
   });
