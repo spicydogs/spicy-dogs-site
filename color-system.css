@@ -45,7 +45,7 @@ p,
   color:var(--navy);
 }
 
-/* Keep key emphasis coral */
+/* Key emphasis */
 .quote,
 .price,
 .link,
@@ -70,7 +70,7 @@ p,
   color:var(--pink);
 }
 
-/* Dark/image backgrounds: keep body copy light, while titles stay coral */
+/* Dark/image backgrounds */
 .about-hero-copy h1,
 .shop-hero h1,
 .email-box h2,
@@ -88,19 +88,11 @@ p,
   color:#fff;
 }
 
-/* Navigation and interactive text remain clear */
+/* Navigation and interactive text */
 .nav-links a:not(.btn),
 .faq-index a,
 .faq-item summary,
 .quote-card .name,
 .carousel-caption{
-  color:var(--navy);
-}
-
-/* Preserve pink hover accent on buttons */
-.btn:hover,
-.button:hover{
-  background:var(--pink);
-  border-color:var(--pink);
   color:var(--navy);
 }
