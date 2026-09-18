@@ -191,7 +191,7 @@
 .home-writing #fallback-posts{margin-top:30px!important}
 
 /* Google review ratings */
-.review-stars{margin-bottom:10px;color:#F4B400;font-size:1.05rem;letter-spacing:.12em;line-height:1}
+.review-stars{margin:-2px 0 12px;color:var(--coral);font-size:1.05rem;letter-spacing:.12em;line-height:1}
 
 /* Expandable review cards */
 .review-details{margin-top:14px}
