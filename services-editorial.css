@@ -113,3 +113,17 @@
   .discovery-calendar{min-height:720px;border-radius:20px}
   #spicy-dogs-calendly{height:720px}
 }
+
+
+/* Keep the two discovery-step CTAs visually identical */
+.discovery-step-btn{
+  width:255px;
+  min-height:52px;
+  padding:13px 22px;
+  font:inherit;
+  font-weight:750;
+  line-height:1.2;
+}
+@media(max-width:600px){
+  .discovery-step-btn{width:100%}
+}
