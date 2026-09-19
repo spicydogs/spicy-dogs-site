@@ -31,6 +31,23 @@
 })();
 
 document.addEventListener('DOMContentLoaded', function () {
+  /* Defer the large homepage hero video until the page has rendered.
+     Keep the poster visible for visitors using data-saver mode. */
+  document.querySelectorAll('video[data-lazy-video]').forEach(function (video) {
+    function loadVideo() {
+      if (navigator.connection && navigator.connection.saveData) return;
+      video.querySelectorAll('source[data-src]').forEach(function (source) {
+        source.src = source.getAttribute('data-src');
+        source.removeAttribute('data-src');
+      });
+      video.load();
+      var playPromise = video.play();
+      if (playPromise && typeof playPromise.catch === 'function') playPromise.catch(function () {});
+    }
+    if (document.readyState === 'complete') setTimeout(loadVideo, 350);
+    else window.addEventListener('load', function () { setTimeout(loadVideo, 350); }, { once: true });
+  });
+
   var main = document.querySelector('main');
   if (main) {
     main.id = main.id || 'main-content';
