@@ -73,3 +73,16 @@
   }
   .services-hero-image img{object-position:center 40%}
 }
+
+
+/* Client words intro — use the full content width */
+.client-words-intro,
+.client-words-intro > div{
+  width:100%;
+  max-width:none;
+}
+.client-words-intro h2,
+.client-words-intro .kicker{
+  width:100%;
+  max-width:none;
+}
