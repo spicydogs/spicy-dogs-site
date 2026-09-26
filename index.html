@@ -281,7 +281,7 @@
   var grid = document.getElementById('posts-grid');
   var fallback = document.getElementById('fallback-posts');
   if (!grid) return;
-  fetch('/api/posts?v=20260926').then(function(res){ return res.json(); }).then(function(data){
+  fetch('https://spicy-dogs-site.pages.dev/api/posts?v=20260926').then(function(res){ return res.json(); }).then(function(data){
     if (!data.posts || !data.posts.length) throw new Error('no posts');
     grid.innerHTML = data.posts.slice(0, 3).map(function(p){
       var safeTitle = p.title.replace(/</g,'&lt;');
