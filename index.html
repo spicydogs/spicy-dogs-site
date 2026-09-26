@@ -253,10 +253,8 @@
         <h2>Thinking differently about dogs.</h2>
         <p class="kicker">Essays, observations and practical resources exploring dog behaviour, free-living dogs, relationships, welfare and what happens when human expectations meet canine reality.</p>
         <div id="posts-grid" class="grid-3" style="margin-top:34px"></div>
-        <div id="fallback-posts" class="grid-3" style="margin-top:34px;display:none">
-          <div class="card"><div class="mini">Substack</div><h3>Read my latest writing</h3><p>Essays and observations on behaviour, free-living dogs, relationships and welfare.</p><a class="link" href="https://spicydogss.substack.com/" target="_blank" rel="noopener">Visit Substack →</a></div>
-          <div class="card"><div class="mini">Substack</div><h3>Thinking differently about dogs</h3><p>Long-form writing that explores the dog behind the behaviour.</p><a class="link" href="https://spicydogss.substack.com/" target="_blank" rel="noopener">Browse articles →</a></div>
-          <div class="card"><div class="mini">Substack</div><h3>Free-living dogs & adoption</h3><p>Writing on village dogs, adoption expectations and living with more independent dogs.</p><a class="link" href="https://spicydogss.substack.com/" target="_blank" rel="noopener">Read on Substack →</a></div>
+        <div id="fallback-posts" style="margin-top:34px;display:none">
+          <div class="card"><div class="mini">Substack</div><h3>Read my latest writing</h3><p>Article previews are temporarily unavailable. You can read all published Spicy Dogs essays directly on Substack.</p><a class="link" href="https://spicydogss.substack.com/" target="_blank" rel="noopener">Read the latest articles →</a></div>
         </div>
       </div>
     </section>
@@ -283,7 +281,7 @@
   var grid = document.getElementById('posts-grid');
   var fallback = document.getElementById('fallback-posts');
   if (!grid) return;
-  fetch('/api/posts').then(function(res){ return res.json(); }).then(function(data){
+  fetch('/api/posts?v=20260926').then(function(res){ return res.json(); }).then(function(data){
     if (!data.posts || !data.posts.length) throw new Error('no posts');
     grid.innerHTML = data.posts.slice(0, 3).map(function(p){
       var safeTitle = p.title.replace(/</g,'&lt;');
@@ -297,7 +295,7 @@
     }).join('');
   }).catch(function(){
     grid.style.display = 'none';
-    fallback.style.display = 'grid';
+    fallback.style.display = 'block';
   });
 })();
 </script>
