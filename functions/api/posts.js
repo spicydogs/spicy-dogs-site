@@ -7,10 +7,11 @@
 const FEED_URL = "https://spicydogss.substack.com/feed";
 const MAX_POSTS = 6;
 const EXCERPT_LENGTH = 160;
+const CACHE_SECONDS = 300;
 
 export async function onRequestGet(context) {
   const cache = caches.default;
-  const cacheKey = new Request(context.request.url, context.request);
+  const cacheKey = new Request(context.request.url, { method: "GET" });
 
   // Serve from Cloudflare's edge cache when possible so we don't hit
   // Substack on every page view.
@@ -19,8 +20,8 @@ export async function onRequestGet(context) {
 
   try {
     const feedRes = await fetch(FEED_URL, {
-      headers: { "User-Agent": "SpicyDogsSite/1.0 (+https://spicy-dogs-site.pages.dev)" },
-      cf: { cacheTtl: 3600, cacheEverything: true },
+      headers: { "User-Agent": "SpicyDogsSite/1.1 (+https://spicydogsbehaviour.com)" },
+      cf: { cacheTtl: CACHE_SECONDS, cacheEverything: true },
     });
 
     if (!feedRes.ok) {
@@ -28,14 +29,18 @@ export async function onRequestGet(context) {
     }
 
     const xml = await feedRes.text();
-    const posts = parseFeed(xml).slice(0, MAX_POSTS);
+    const posts = parseFeed(xml)
+      .filter((post) => post.title && post.link)
+      .sort((a, b) => (Date.parse(b.pubDate || 0) || 0) - (Date.parse(a.pubDate || 0) || 0))
+      .slice(0, MAX_POSTS);
+    if (!posts.length) throw new Error("No readable posts found in Substack feed");
 
     const response = new Response(JSON.stringify({ posts, fetchedAt: new Date().toISOString() }), {
       headers: {
         "Content-Type": "application/json",
         // Browser: don't cache. Edge (Cloudflare): cache for 1 hour,
         // serve stale for up to a day while revalidating in the background.
-        "Cache-Control": "public, max-age=0, s-maxage=3600, stale-while-revalidate=86400",
+        "Cache-Control": "public, max-age=0, s-maxage=300, stale-while-revalidate=600",
         "Access-Control-Allow-Origin": "*",
       },
     });
@@ -44,7 +49,7 @@ export async function onRequestGet(context) {
     return response;
   } catch (err) {
     return new Response(JSON.stringify({ posts: [], error: String(err) }), {
-      status: 200, // don't break the page — blog.html falls back to static cards
+      status: 200, // blog.html falls back to a direct Substack link
       headers: { "Content-Type": "application/json" },
     });
   }
